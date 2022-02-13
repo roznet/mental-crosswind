@@ -18,10 +18,10 @@ import AVFoundation
     var windSpeed : Speed = Speed(roundedSpeed: 10 )
     var windGust : Speed? = nil
     
-    init( runway : Heading, wind : Heading, speed : Speed, gust : Speed?){
+    init( runway : Heading, wind : Heading? = nil, speed : Speed? = nil, gust : Speed? = nil){
         self.runwayHeading = runway
-        self.windDirection = wind
-        self.windSpeed = speed
+        self.windDirection = wind ?? runway
+        self.windSpeed = speed ?? Speed(roundedSpeed: 0)
         self.windGust = gust
     }
     
@@ -128,13 +128,26 @@ import AVFoundation
     }
     
     //MARK: - Analyse
-    
+
     func hint() -> String {
+        let xwind = self.runwayHeading.absoluteDifference(with: self.windDirection)
+        let xcomponent = Int(round(self.runwayHeading.crossComponentPercent(with: self.windDirection)*100.0))
+        
+        let memo = [ (15,25), (30,50), (45,75), (60,100)]
+        if let closest = memo.enumerated().min(by: { abs( $0.1.0 - xwind.roundedHeading ) < abs( $1.1.0 - xwind.roundedHeading ) }) {
+            return "\(xwind.description)deg proxy=\(closest.element.0)deg Cross=\(closest.element.1)% "
+        }else{
+            return "\(xwind.description)deg Cross=\(xcomponent)% "
+        }
+    }
+
+    
+    func analyseHint() -> String {
         let xwind = self.runwayHeading.absoluteDifference(with: self.windDirection)
         let xcomponent = Int(round(self.runwayHeading.crossComponentPercent(with: self.windDirection)*100.0))
         let direct = Int(round(self.runwayHeading.directComponentPercent(with: self.windDirection)*100.0))
         
-        return "\(xwind.description)deg XWind=\(xcomponent)% Head=\(direct)%"
+        return "\(xwind.description)deg Cross=\(xcomponent)% Head=\(direct)%"
     }
     
     func analyse() -> String {
@@ -143,7 +156,7 @@ import AVFoundation
         let direct = Int(round(self.runwayHeading.directComponentPercent(with: self.windDirection) * self.windSpeed.speed))
         let from = self.runwayHeading.direction(to: self.windDirection)
         
-        return "\(xwind.description)deg \(from)  XWind=\(xcomponent)kts Head=\(direct)kts"
+        return "\(xwind.description)deg \(from)  Cross=\(xcomponent)kts Head=\(direct)kts"
     }
     
 }

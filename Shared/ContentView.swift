@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var runway: String = "24"
     @State private var announce : String = ""
     @State private var hint : String = ""
+    @State private var analysisHint : String = ""
     @State private var analysis : String = ""
     
     var model = RunwayWindModel()
@@ -37,14 +38,17 @@ struct ContentView: View {
     }
 
     func updateAnalysis() {
+        self.analysisHint = model.analyseHint()
         self.analysis = model.analyse()
     }
     
     var body: some View {
-        VStack() {
-            HStack() {
+        VStack(alignment: .center) {
+            HStack(alignment: .center) {
                 Text("Runway")
+                    .frame(width:60)
                 TextField("Runway", text: $runway)
+                    .frame(width:60)
                     .padding()
                     .keyboardType(.numberPad)
                     .onReceive(Just(runway)) { newValue in
@@ -60,6 +64,7 @@ struct ContentView: View {
                 self.analysis = ""
                 self.announce = ""
                 self.hint = ""
+                self.analysisHint = ""
                 print( model.announce)
                 print( model.analyse() )
                 model.speak() {
@@ -70,6 +75,7 @@ struct ContentView: View {
             VStack() {
                 Text( self.announce )
                 Text( self.hint )
+                Text( self.analysisHint )
                 Text( self.analysis )
             }
         }
@@ -78,6 +84,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        var c = ContentView()
+        
+        return c
     }
 }

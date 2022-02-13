@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "42875CB427B97E0800E47BB5"
-               BuildableName = "xwindTests.xctest"
+               BuildableName = "mental-crosswindTests.xctest"
                BlueprintName = "mental-crosswindTests"
                ReferencedContainer = "container:mental-crosswind.xcodeproj">
             </BuildableReference>

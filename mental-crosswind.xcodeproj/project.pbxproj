@@ -20,6 +20,19 @@
 		42875CA227B975E600E47BB5 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
 		42875CA327B975E600E47BB5 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
 		42875CB827B97E0800E47BB5 /* xwindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CB727B97E0800E47BB5 /* xwindTests.swift */; };
+		42B7C4A627B9A665007C59F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4A527B9A665007C59F8 /* AppDelegate.swift */; };
+		42B7C4A827B9A665007C59F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4A727B9A665007C59F8 /* SceneDelegate.swift */; };
+		42B7C4AA27B9A665007C59F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4A927B9A665007C59F8 /* ViewController.swift */; };
+		42B7C4AD27B9A665007C59F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B7C4AB27B9A665007C59F8 /* Main.storyboard */; };
+		42B7C4AF27B9A666007C59F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B7C4AE27B9A666007C59F8 /* Assets.xcassets */; };
+		42B7C4B227B9A666007C59F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B7C4B027B9A666007C59F8 /* LaunchScreen.storyboard */; };
+		42B7C4BD27B9A667007C59F8 /* MentalCrosswindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4BC27B9A667007C59F8 /* MentalCrosswindTests.swift */; };
+		42B7C4C727B9A667007C59F8 /* MentalCrosswindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4C627B9A667007C59F8 /* MentalCrosswindUITests.swift */; };
+		42B7C4C927B9A667007C59F8 /* MentalCrosswindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4C827B9A667007C59F8 /* MentalCrosswindUITestsLaunchTests.swift */; };
+		42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9E27B96F9400E47BB5 /* Heading.swift */; };
+		42B7C4D427B9A67E007C59F8 /* RunwayWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9A27B9239C00E47BB5 /* RunwayWindModel.swift */; };
+		42B7C4D527B9A67E007C59F8 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
+		42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +42,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 42875C8227B9235000E47BB5;
 			remoteInfo = "xwind (iOS)";
+		};
+		42B7C4B927B9A666007C59F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42875C7727B9234D00E47BB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42B7C4A227B9A665007C59F8;
+			remoteInfo = MentalCrosswind;
+		};
+		42B7C4C327B9A667007C59F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42875C7727B9234D00E47BB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42B7C4A227B9A665007C59F8;
+			remoteInfo = MentalCrosswind;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -45,6 +72,20 @@
 		42875CB527B97E0800E47BB5 /* mental-crosswindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mental-crosswindTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42875CB727B97E0800E47BB5 /* xwindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xwindTests.swift; sourceTree = "<group>"; };
 		42875CBE27B97EB500E47BB5 /* xwind (iOS).xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "xwind (iOS).xctestplan"; sourceTree = "<group>"; };
+		42B7C4A327B9A665007C59F8 /* MentalCrosswind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalCrosswind.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B7C4A527B9A665007C59F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		42B7C4A727B9A665007C59F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		42B7C4A927B9A665007C59F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		42B7C4AC27B9A665007C59F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		42B7C4AE27B9A666007C59F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		42B7C4B127B9A666007C59F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		42B7C4B327B9A666007C59F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42B7C4B827B9A666007C59F8 /* MentalCrosswindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MentalCrosswindTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B7C4BC27B9A667007C59F8 /* MentalCrosswindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalCrosswindTests.swift; sourceTree = "<group>"; };
+		42B7C4C227B9A667007C59F8 /* MentalCrosswindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MentalCrosswindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B7C4C627B9A667007C59F8 /* MentalCrosswindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalCrosswindUITests.swift; sourceTree = "<group>"; };
+		42B7C4C827B9A667007C59F8 /* MentalCrosswindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalCrosswindUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +110,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		42B7C4A027B9A665007C59F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B7C4B527B9A666007C59F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B7C4BF27B9A667007C59F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -79,6 +141,9 @@
 				42875C7B27B9234D00E47BB5 /* Shared */,
 				42875C8A27B9235000E47BB5 /* macOS */,
 				42875CB627B97E0800E47BB5 /* xwindTests */,
+				42B7C4A427B9A665007C59F8 /* MentalCrosswind */,
+				42B7C4BB27B9A667007C59F8 /* MentalCrosswindTests */,
+				42B7C4C527B9A667007C59F8 /* MentalCrosswindUITests */,
 				42875C8427B9235000E47BB5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +164,9 @@
 				42875C8327B9235000E47BB5 /* MentalCrosswind.app */,
 				42875C8927B9235000E47BB5 /* mental-crosswind.app */,
 				42875CB527B97E0800E47BB5 /* mental-crosswindTests.xctest */,
+				42B7C4A327B9A665007C59F8 /* MentalCrosswind.app */,
+				42B7C4B827B9A666007C59F8 /* MentalCrosswindTests.xctest */,
+				42B7C4C227B9A667007C59F8 /* MentalCrosswindUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +196,38 @@
 				42875CBE27B97EB500E47BB5 /* xwind (iOS).xctestplan */,
 			);
 			path = xwindTests;
+			sourceTree = "<group>";
+		};
+		42B7C4A427B9A665007C59F8 /* MentalCrosswind */ = {
+			isa = PBXGroup;
+			children = (
+				42B7C4A527B9A665007C59F8 /* AppDelegate.swift */,
+				42B7C4A727B9A665007C59F8 /* SceneDelegate.swift */,
+				42B7C4A927B9A665007C59F8 /* ViewController.swift */,
+				42B7C4AB27B9A665007C59F8 /* Main.storyboard */,
+				42B7C4AE27B9A666007C59F8 /* Assets.xcassets */,
+				42B7C4B027B9A666007C59F8 /* LaunchScreen.storyboard */,
+				42B7C4B327B9A666007C59F8 /* Info.plist */,
+				42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */,
+			);
+			path = MentalCrosswind;
+			sourceTree = "<group>";
+		};
+		42B7C4BB27B9A667007C59F8 /* MentalCrosswindTests */ = {
+			isa = PBXGroup;
+			children = (
+				42B7C4BC27B9A667007C59F8 /* MentalCrosswindTests.swift */,
+			);
+			path = MentalCrosswindTests;
+			sourceTree = "<group>";
+		};
+		42B7C4C527B9A667007C59F8 /* MentalCrosswindUITests */ = {
+			isa = PBXGroup;
+			children = (
+				42B7C4C627B9A667007C59F8 /* MentalCrosswindUITests.swift */,
+				42B7C4C827B9A667007C59F8 /* MentalCrosswindUITestsLaunchTests.swift */,
+			);
+			path = MentalCrosswindUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +285,59 @@
 			productReference = 42875CB527B97E0800E47BB5 /* mental-crosswindTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		42B7C4A227B9A665007C59F8 /* MentalCrosswind */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42B7C4CA27B9A667007C59F8 /* Build configuration list for PBXNativeTarget "MentalCrosswind" */;
+			buildPhases = (
+				42B7C49F27B9A665007C59F8 /* Sources */,
+				42B7C4A027B9A665007C59F8 /* Frameworks */,
+				42B7C4A127B9A665007C59F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MentalCrosswind;
+			productName = MentalCrosswind;
+			productReference = 42B7C4A327B9A665007C59F8 /* MentalCrosswind.app */;
+			productType = "com.apple.product-type.application";
+		};
+		42B7C4B727B9A666007C59F8 /* MentalCrosswindTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42B7C4CD27B9A667007C59F8 /* Build configuration list for PBXNativeTarget "MentalCrosswindTests" */;
+			buildPhases = (
+				42B7C4B427B9A666007C59F8 /* Sources */,
+				42B7C4B527B9A666007C59F8 /* Frameworks */,
+				42B7C4B627B9A666007C59F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42B7C4BA27B9A666007C59F8 /* PBXTargetDependency */,
+			);
+			name = MentalCrosswindTests;
+			productName = MentalCrosswindTests;
+			productReference = 42B7C4B827B9A666007C59F8 /* MentalCrosswindTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		42B7C4C127B9A667007C59F8 /* MentalCrosswindUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42B7C4D027B9A667007C59F8 /* Build configuration list for PBXNativeTarget "MentalCrosswindUITests" */;
+			buildPhases = (
+				42B7C4BE27B9A667007C59F8 /* Sources */,
+				42B7C4BF27B9A667007C59F8 /* Frameworks */,
+				42B7C4C027B9A667007C59F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42B7C4C427B9A667007C59F8 /* PBXTargetDependency */,
+			);
+			name = MentalCrosswindUITests;
+			productName = MentalCrosswindUITests;
+			productReference = 42B7C4C227B9A667007C59F8 /* MentalCrosswindUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,6 +358,17 @@
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = 42875C8227B9235000E47BB5;
 					};
+					42B7C4A227B9A665007C59F8 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					42B7C4B727B9A666007C59F8 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 42B7C4A227B9A665007C59F8;
+					};
+					42B7C4C127B9A667007C59F8 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 42B7C4A227B9A665007C59F8;
+					};
 				};
 			};
 			buildConfigurationList = 42875C7A27B9234D00E47BB5 /* Build configuration list for PBXProject "mental-crosswind" */;
@@ -223,6 +387,9 @@
 				42875C8227B9235000E47BB5 /* mental-crosswind (iOS) */,
 				42875C8827B9235000E47BB5 /* mental-crosswind (macOS) */,
 				42875CB427B97E0800E47BB5 /* mental-crosswindTests */,
+				42B7C4A227B9A665007C59F8 /* MentalCrosswind */,
+				42B7C4B727B9A666007C59F8 /* MentalCrosswindTests */,
+				42B7C4C127B9A667007C59F8 /* MentalCrosswindUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,6 +412,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		42875CB327B97E0800E47BB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B7C4A127B9A665007C59F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B7C4B227B9A666007C59F8 /* LaunchScreen.storyboard in Resources */,
+				42B7C4AF27B9A666007C59F8 /* Assets.xcassets in Resources */,
+				42B7C4AD27B9A665007C59F8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B7C4B627B9A666007C59F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B7C4C027B9A667007C59F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,6 +477,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		42B7C49F27B9A665007C59F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */,
+				42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */,
+				42B7C4AA27B9A665007C59F8 /* ViewController.swift in Sources */,
+				42B7C4A627B9A665007C59F8 /* AppDelegate.swift in Sources */,
+				42B7C4D527B9A67E007C59F8 /* Speed.swift in Sources */,
+				42B7C4A827B9A665007C59F8 /* SceneDelegate.swift in Sources */,
+				42B7C4D427B9A67E007C59F8 /* RunwayWindModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B7C4B427B9A666007C59F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B7C4BD27B9A667007C59F8 /* MentalCrosswindTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B7C4BE27B9A667007C59F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B7C4C927B9A667007C59F8 /* MentalCrosswindUITestsLaunchTests.swift in Sources */,
+				42B7C4C727B9A667007C59F8 /* MentalCrosswindUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -294,7 +516,36 @@
 			target = 42875C8227B9235000E47BB5 /* mental-crosswind (iOS) */;
 			targetProxy = 42875CB927B97E0800E47BB5 /* PBXContainerItemProxy */;
 		};
+		42B7C4BA27B9A666007C59F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42B7C4A227B9A665007C59F8 /* MentalCrosswind */;
+			targetProxy = 42B7C4B927B9A666007C59F8 /* PBXContainerItemProxy */;
+		};
+		42B7C4C427B9A667007C59F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42B7C4A227B9A665007C59F8 /* MentalCrosswind */;
+			targetProxy = 42B7C4C327B9A667007C59F8 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		42B7C4AB27B9A665007C59F8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42B7C4AC27B9A665007C59F8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		42B7C4B027B9A666007C59F8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42B7C4B127B9A666007C59F8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		42875C9227B9235000E47BB5 /* Debug */ = {
@@ -541,7 +792,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mental-crosswind.app/mental-crosswind";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MentalCrosswind.app/MentalCrosswind";
 			};
 			name = Debug;
 		};
@@ -561,7 +812,152 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mental-crosswind.app/mental-crosswind";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MentalCrosswind.app/MentalCrosswind";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42B7C4CB27B9A667007C59F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M7QSSF3624;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MentalCrosswind/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.MentalCrosswind";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		42B7C4CC27B9A667007C59F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M7QSSF3624;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MentalCrosswind/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.MentalCrosswind";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42B7C4CE27B9A667007C59F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M7QSSF3624;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.MentalCrosswindTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MentalCrosswind.app/MentalCrosswind";
+			};
+			name = Debug;
+		};
+		42B7C4CF27B9A667007C59F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M7QSSF3624;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.MentalCrosswindTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MentalCrosswind.app/MentalCrosswind";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42B7C4D127B9A667007C59F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M7QSSF3624;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.MentalCrosswindUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MentalCrosswind;
+			};
+			name = Debug;
+		};
+		42B7C4D227B9A667007C59F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M7QSSF3624;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.MentalCrosswindUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MentalCrosswind;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -601,6 +997,33 @@
 			buildConfigurations = (
 				42875CBC27B97E0800E47BB5 /* Debug */,
 				42875CBD27B97E0800E47BB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42B7C4CA27B9A667007C59F8 /* Build configuration list for PBXNativeTarget "MentalCrosswind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B7C4CB27B9A667007C59F8 /* Debug */,
+				42B7C4CC27B9A667007C59F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42B7C4CD27B9A667007C59F8 /* Build configuration list for PBXNativeTarget "MentalCrosswindTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B7C4CE27B9A667007C59F8 /* Debug */,
+				42B7C4CF27B9A667007C59F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42B7C4D027B9A667007C59F8 /* Build configuration list for PBXNativeTarget "MentalCrosswindUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B7C4D127B9A667007C59F8 /* Debug */,
+				42B7C4D227B9A667007C59F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

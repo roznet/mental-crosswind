@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import xwind
+@testable import MentalCrosswind
 
 class xwindTests: XCTestCase {
 
@@ -21,11 +21,13 @@ class xwindTests: XCTestCase {
     func testExample() throws {
         
         let runway = Heading(roundedHeading: 240 )
-        let wind = Heading(roundedHeading: 225)
+        let wind = Heading(roundedHeading: 190)
                 
         let model = RunwayWindModel(runway: runway, wind: wind, speed: Speed(roundedSpeed: 12), gust: nil)
 
         print( "\(model.announce)")
+        print( "\(model.hint())")
+        print( "\(model.analyseHint())")
         print( "\(model.analyse())")
     }
 
