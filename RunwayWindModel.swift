@@ -57,13 +57,18 @@ import AVFoundation
     
     func speak( completion : @escaping ()->Void = {}){
         let utterance = AVSpeechUtterance(string: self.clearance )
-        utterance.rate = 0.55
-        utterance.pitchMultiplier = 0.8
+        utterance.rate = 0.5 + (Float.random(in: 0..<10)/1000.0)
+        utterance.pitchMultiplier = 0.8 + (Float.random(in: 0..<10)/1000.0)
         utterance.postUtteranceDelay = 0.2
         utterance.volume = 0.8
 
-        let voice = AVSpeechSynthesisVoice(language: "en-GB")
         
+        let available = AVSpeechSynthesisVoice.speechVoices().filter {
+            $0.language.starts(with: "en")
+        }
+        
+        let voice = available[ Int.random(in: 0 ..< available.count)]
+        print( voice )
         utterance.voice = voice
         self.synthetizer = AVSpeechSynthesizer()
         self.completion = completion
