@@ -16,7 +16,7 @@ extension NSString {
             context.concatenate(translation)
             context.concatenate(rotation)
             
-            let drawPoint = CGPoint(x: size.width / -2.0 * -1.0, y: size.height / 2.0 * -1.0)
+            let drawPoint = CGPoint(x: size.width / 2.0 * -1.0, y: size.height / 2.0 * -1.0)
             self.draw(at: drawPoint, withAttributes: attr)
             
             context.concatenate(rotation.inverted())
@@ -26,18 +26,28 @@ extension NSString {
 }
 
 class HeadingIndicatorView: UIView {
-    var heading : CGFloat = 0.0
+    var heading : CGFloat = 240.0
+    
+    var northUp : Bool = false
     
     var circleColor : UIColor = UIColor.label
     var compassPointColor : UIColor = UIColor.label
     
     var labelAttribute : [NSAttributedString.Key : Any]? = nil
     
+    func angle(degree : Float) -> Float {
+        if( self.northUp ){
+            return degree - 90.0
+        }else{
+            return (degree - Float(heading)).truncatingRemainder(dividingBy: 360.0) - 90.0
+        }
+    }
+    
     override func draw(_ rect: CGRect) {
         let center : CGPoint = CGPoint(x: rect.origin.x + rect.size.width/2.0, y: rect.origin.y + rect.size.height/2.0)
-        let radius : CGFloat = 0.5 * min(rect.size.width, rect.size.height)/2.0
+        let radius : CGFloat = 0.5 * min(rect.size.width, rect.size.height)
         
-        let outCircle  = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0.0, endAngle: .pi
+        let outCircle  = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0.0, endAngle: .pi * 2.0
                                       , clockwise: true)
         
         self.circleColor.setStroke()
@@ -71,7 +81,7 @@ class HeadingIndicatorView: UIView {
             
             let radiusStart = radius * ( 1.0 - ( length / 100.0) )
             let radiusEnd = radius
-            let angleDegree =  Float(headingPoint) * 10.0
+            let angleDegree =  self.angle(degree: Float(headingPoint) * 10.0 )
             let angleRadian : Float = angleDegree * .pi / 180.0
             
             let startPoint = CGPoint(x: center.x + CGFloat(cosf(angleRadian)) * radiusStart,
@@ -80,6 +90,7 @@ class HeadingIndicatorView: UIView {
                                    y: center.y + CGFloat(sinf(angleRadian)) * radiusEnd)
             
             let tick = UIBezierPath()
+            tick.lineWidth = width
             tick.move(to: startPoint)
             tick.addLine(to: endPoint)
             tick.close()
@@ -88,9 +99,10 @@ class HeadingIndicatorView: UIView {
             if let label = label {
                 let string = label as NSString
                 let size = string.size(withAttributes: self.labelAttribute)
+                let textAngle = angleRadian + (.pi / 2.0)
                 let textPoint = CGPoint(x: startPoint.x - CGFloat(cosf(angleRadian)) * ( size.height + textMargin),
                                         y: startPoint.y - CGFloat(sinf(angleRadian)) * ( size.height + textMargin))
-                string.draw(centeredAt: textPoint, angle: CGFloat(angleRadian), withAttribute: self.labelAttribute)
+                string.draw(centeredAt: textPoint, angle: CGFloat(textAngle), withAttribute: self.labelAttribute)
             }
         }
         
