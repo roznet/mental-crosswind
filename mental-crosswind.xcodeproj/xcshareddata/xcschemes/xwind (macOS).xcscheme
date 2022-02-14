@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "42875C8827B9235000E47BB5"
-               BuildableName = "xwind.app"
+               BuildableName = "mental-crosswind.app"
                BlueprintName = "mental-crosswind (macOS)"
                ReferencedContainer = "container:mental-crosswind.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "42875C8827B9235000E47BB5"
-            BuildableName = "xwind.app"
+            BuildableName = "mental-crosswind.app"
             BlueprintName = "mental-crosswind (macOS)"
             ReferencedContainer = "container:mental-crosswind.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "42875C8827B9235000E47BB5"
-            BuildableName = "xwind.app"
+            BuildableName = "mental-crosswind.app"
             BlueprintName = "mental-crosswind (macOS)"
             ReferencedContainer = "container:mental-crosswind.xcodeproj">
          </BuildableReference>

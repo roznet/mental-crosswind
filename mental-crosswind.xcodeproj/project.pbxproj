@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4206AF9527BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */; };
 		42875C8C27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8D27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8E27B9235000E47BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7D27B9234D00E47BB5 /* ContentView.swift */; };
 		42875C8F27B9235000E47BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7D27B9234D00E47BB5 /* ContentView.swift */; };
 		42875C9027B9235000E47BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42875C7E27B9235000E47BB5 /* Assets.xcassets */; };
 		42875C9127B9235000E47BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42875C7E27B9235000E47BB5 /* Assets.xcassets */; };
-		42875C9B27B9239C00E47BB5 /* RunwayWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9A27B9239C00E47BB5 /* RunwayWindModel.swift */; };
-		42875C9C27B9239C00E47BB5 /* RunwayWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9A27B9239C00E47BB5 /* RunwayWindModel.swift */; };
 		42875C9F27B96F9400E47BB5 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9E27B96F9400E47BB5 /* Heading.swift */; };
 		42875CA027B96F9400E47BB5 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9E27B96F9400E47BB5 /* Heading.swift */; };
 		42875CA227B975E600E47BB5 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
 		42875CA327B975E600E47BB5 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
 		42875CB827B97E0800E47BB5 /* xwindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CB727B97E0800E47BB5 /* xwindTests.swift */; };
+		42910E4427BA3E4500319492 /* RunwayWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42910E4327BA3E4500319492 /* RunwayWindModel.swift */; };
+		42910E4527BA3E4500319492 /* RunwayWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42910E4327BA3E4500319492 /* RunwayWindModel.swift */; };
+		42910E4627BA3E4500319492 /* RunwayWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42910E4327BA3E4500319492 /* RunwayWindModel.swift */; };
 		42B7C4A627B9A665007C59F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4A527B9A665007C59F8 /* AppDelegate.swift */; };
 		42B7C4A827B9A665007C59F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4A727B9A665007C59F8 /* SceneDelegate.swift */; };
 		42B7C4AA27B9A665007C59F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4A927B9A665007C59F8 /* ViewController.swift */; };
@@ -30,7 +32,6 @@
 		42B7C4C727B9A667007C59F8 /* MentalCrosswindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4C627B9A667007C59F8 /* MentalCrosswindUITests.swift */; };
 		42B7C4C927B9A667007C59F8 /* MentalCrosswindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4C827B9A667007C59F8 /* MentalCrosswindUITestsLaunchTests.swift */; };
 		42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9E27B96F9400E47BB5 /* Heading.swift */; };
-		42B7C4D427B9A67E007C59F8 /* RunwayWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9A27B9239C00E47BB5 /* RunwayWindModel.swift */; };
 		42B7C4D527B9A67E007C59F8 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
 		42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */; };
 /* End PBXBuildFile section */
@@ -60,18 +61,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingIndicatorGeometry.swift; sourceTree = "<group>"; };
 		42875C7C27B9234D00E47BB5 /* xwindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xwindApp.swift; sourceTree = "<group>"; };
 		42875C7D27B9234D00E47BB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42875C7E27B9235000E47BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42875C8327B9235000E47BB5 /* MentalCrosswind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalCrosswind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42875C8927B9235000E47BB5 /* mental-crosswind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mental-crosswind.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42875C8B27B9235000E47BB5 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		42875C9A27B9239C00E47BB5 /* RunwayWindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunwayWindModel.swift; sourceTree = "<group>"; };
 		42875C9E27B96F9400E47BB5 /* Heading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Heading.swift; path = Shared/Heading.swift; sourceTree = "<group>"; };
 		42875CA127B975E600E47BB5 /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Speed.swift; path = Shared/Speed.swift; sourceTree = "<group>"; };
 		42875CB527B97E0800E47BB5 /* mental-crosswindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mental-crosswindTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42875CB727B97E0800E47BB5 /* xwindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xwindTests.swift; sourceTree = "<group>"; };
 		42875CBE27B97EB500E47BB5 /* xwind (iOS).xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "xwind (iOS).xctestplan"; sourceTree = "<group>"; };
+		42910E4327BA3E4500319492 /* RunwayWindModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunwayWindModel.swift; path = Shared/RunwayWindModel.swift; sourceTree = "<group>"; };
 		42B7C4A327B9A665007C59F8 /* MentalCrosswind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalCrosswind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B7C4A527B9A665007C59F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42B7C4A727B9A665007C59F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,7 +184,7 @@
 		42875C9D27B96F7B00E47BB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				42875C9A27B9239C00E47BB5 /* RunwayWindModel.swift */,
+				42910E4327BA3E4500319492 /* RunwayWindModel.swift */,
 				42875C9E27B96F9400E47BB5 /* Heading.swift */,
 				42875CA127B975E600E47BB5 /* Speed.swift */,
 			);
@@ -201,6 +203,8 @@
 		42B7C4A427B9A665007C59F8 /* MentalCrosswind */ = {
 			isa = PBXGroup;
 			children = (
+				4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */,
+				42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */,
 				42B7C4A527B9A665007C59F8 /* AppDelegate.swift */,
 				42B7C4A727B9A665007C59F8 /* SceneDelegate.swift */,
 				42B7C4A927B9A665007C59F8 /* ViewController.swift */,
@@ -208,7 +212,6 @@
 				42B7C4AE27B9A666007C59F8 /* Assets.xcassets */,
 				42B7C4B027B9A666007C59F8 /* LaunchScreen.storyboard */,
 				42B7C4B327B9A666007C59F8 /* Info.plist */,
-				42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */,
 			);
 			path = MentalCrosswind;
 			sourceTree = "<group>";
@@ -450,10 +453,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				42875C9F27B96F9400E47BB5 /* Heading.swift in Sources */,
-				42875C9B27B9239C00E47BB5 /* RunwayWindModel.swift in Sources */,
 				42875C8E27B9235000E47BB5 /* ContentView.swift in Sources */,
 				42875CA227B975E600E47BB5 /* Speed.swift in Sources */,
 				42875C8C27B9235000E47BB5 /* xwindApp.swift in Sources */,
+				42910E4427BA3E4500319492 /* RunwayWindModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,10 +465,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				42875CA027B96F9400E47BB5 /* Heading.swift in Sources */,
-				42875C9C27B9239C00E47BB5 /* RunwayWindModel.swift in Sources */,
 				42875C8F27B9235000E47BB5 /* ContentView.swift in Sources */,
 				42875CA327B975E600E47BB5 /* Speed.swift in Sources */,
 				42875C8D27B9235000E47BB5 /* xwindApp.swift in Sources */,
+				42910E4527BA3E4500319492 /* RunwayWindModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,13 +484,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42910E4627BA3E4500319492 /* RunwayWindModel.swift in Sources */,
 				42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */,
+				4206AF9527BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift in Sources */,
 				42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */,
 				42B7C4AA27B9A665007C59F8 /* ViewController.swift in Sources */,
 				42B7C4A627B9A665007C59F8 /* AppDelegate.swift in Sources */,
 				42B7C4D527B9A67E007C59F8 /* Speed.swift in Sources */,
 				42B7C4A827B9A665007C59F8 /* SceneDelegate.swift in Sources */,
-				42B7C4D427B9A67E007C59F8 /* RunwayWindModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
