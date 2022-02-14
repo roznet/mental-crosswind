@@ -80,8 +80,6 @@ class ViewController: UIViewController {
             let radiusFrom = self.headingIndicatorView.radiusPercent(point: panLastPoint)
             let radiusTo = self.headingIndicatorView.radiusPercent(point: locationTo)
             
-            print( "changed \(angleFrom - angleTo) \(radiusFrom - radiusTo)" )
-
             switch panMode {
             case .windHeading:
                 self.headingIndicatorView.rotateWind(degree: (angleTo - angleFrom))

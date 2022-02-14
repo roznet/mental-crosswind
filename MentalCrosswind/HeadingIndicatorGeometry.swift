@@ -14,9 +14,42 @@ struct HeadingIndicatorGeometry {
     let maxRadius : CGFloat
 
     var heading : CGFloat
-    var margin : CGFloat
+    var margin : CGFloat { return maxRadius * 0.10 }
     
+    /*
+     * Configuration for size of tick on the compass
+     */
+    var smallLength : CGFloat { return baseRadius *  0.05 }
+    var regularLength : CGFloat { return baseRadius *  0.1 }
+    let smallWidth : CGFloat = 1.0
+    let regularWidth : CGFloat = 2.0
+
+    var headLength : CGFloat { return baseRadius * 0.15 }
+    var headingHeadLength : CGFloat { return baseRadius * 0.1 }
+    var textMargin : CGFloat { return baseRadius * 0.01 }
+
     var baseRadius : CGFloat { return maxRadius - margin }
+    
+    var windMinRadius : CGFloat { return baseRadius - regularLength - textMargin }
+    var windMaxRadius : CGFloat { return baseRadius * 0.5 }
+    
+    func windStartRadius(speed : CGFloat ) -> CGFloat {
+        let minRadiusSpeed : CGFloat = 0.0
+        let maxRadiusSpeed : CGFloat = 50.0
+        
+        let speedRadius : CGFloat = self.windMinRadius + (speed - minRadiusSpeed)/(maxRadiusSpeed - minRadiusSpeed) * (self.windMaxRadius-self.windMinRadius)
+        
+        let rv = min( self.windMinRadius, max( self.windMaxRadius, speedRadius) )
+        print( "\(speed): \(rv)")
+        return rv
+    }
+    
+    /**
+     * return width of cone in degrees
+     */
+    func windWidth(speed : CGFloat) -> CGFloat {
+        return 10.0
+    }
     
     /**
      * Will return the angle in screen coordinate for given heading inside the geometry
@@ -37,7 +70,6 @@ struct HeadingIndicatorGeometry {
         self.rect = rect
         self.center = CGPoint(x: rect.origin.x + rect.size.width/2.0, y: rect.origin.y + rect.size.height/2.0)
         self.maxRadius = 0.5 * min(rect.size.width, rect.size.height)
-        self.margin = 0.0
         self.heading = heading
     }
 }

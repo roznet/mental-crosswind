@@ -63,11 +63,11 @@ class HeadingIndicatorView: UIView {
 
     var geometry : HeadingIndicatorGeometry = HeadingIndicatorGeometry(rect: CGRect.zero, heading: 0.0)
     
+
     /**
      Margin of the circle from view rect
      */
-    var margin : CGFloat = 15.0
-    let textMargin : CGFloat = 0.0
+    
     
     var circleColor : UIColor = UIColor.label
     var compassPointColor : UIColor = UIColor.label
@@ -80,7 +80,21 @@ class HeadingIndicatorView: UIView {
     //MARK: - draw elements
     
     func drawRunway(_ rect : CGRect){
-        
+        let runwayWidth = geometry.baseRadius * 0.25
+        let runwayLength = geometry.baseRadius * 0.4
+        let center = geometry.center
+        let runwayTopLeft  = CGPoint(x: center.x - runwayWidth/2.0 , y: center.y-runwayLength/2.0)
+        let runwayTopRight = CGPoint(x: center.x + runwayWidth/2.0 , y: center.y-runwayLength/2.0)
+
+        let runwayBottomLeft  = CGPoint(x: center.x - runwayWidth/2.0 , y: center.y+runwayLength/2.0)
+        let runwayBottomRight = CGPoint(x: center.x + runwayWidth/2.0 , y: center.y+runwayLength/2.0)
+
+        let path = UIBezierPath()
+        path.move(to: runwayTopLeft)
+        path.addLine(to: runwayBottomLeft)
+        path.addLine(to: runwayBottomRight)
+        path.addLine(to: runwayTopRight)
+        path.stroke()
     }
     
     func drawCompass(_ rect : CGRect){
@@ -92,35 +106,31 @@ class HeadingIndicatorView: UIView {
         self.circleColor.setStroke()
         outCircle.stroke()
         
-        let smallLength : CGFloat = 5.0
-        let regularLength : CGFloat = 10.0
-        let smallWidth : CGFloat = 1.0
-        let regularWidth : CGFloat = 2.0
-        
-        
         
         let cardinalPoint : [String] = ["N", "E", "S", "W"]
         
         for headingPoint in 0..<36 {
+            let angle : CGFloat = CGFloat(headingPoint) * 10.0
+            
             var label : String? = nil
-            var length : CGFloat = smallLength
-            var width : CGFloat = smallWidth
+            var length : CGFloat = geometry.smallLength
+            var width : CGFloat = geometry.smallWidth
+            
             if headingPoint % 9 == 0 {
-                length = regularLength
-                width = regularWidth
-                label = cardinalPoint[ headingPoint/9]
+                length = geometry.regularLength
+                width = geometry.regularWidth
+                label = cardinalPoint[ headingPoint/9 ]
             }
             else if headingPoint % 3 == 0 {
-                length = regularLength
-                width = regularWidth
+                length = geometry.regularLength
+                width = geometry.regularWidth
                 label = "\(headingPoint)"
             }else{
                 label = ""
             }
             
-            let radiusStart = geometry.baseRadius * ( 1.0 - ( length / 100.0) )
+            let radiusStart = geometry.baseRadius - length
             let radiusEnd = geometry.baseRadius
-            let angle : CGFloat = CGFloat(headingPoint) * 10.0
   
             let startPoint = geometry.point(angle: angle, radius: radiusStart)
             let endPoint = geometry.point(angle: angle, radius: radiusEnd)
@@ -136,18 +146,17 @@ class HeadingIndicatorView: UIView {
                 let string = label as NSString
                 let size = string.size(withAttributes: self.labelAttribute)
                 let textAngle = geometry.viewCoordinateAngle(heading: angle) + 90.0
-                let textPoint = geometry.point(angle: angle, radius: radiusStart - size.height - textMargin )
+                let textPoint = geometry.point(angle: angle, radius: radiusStart - geometry.textMargin - size.height/2.0  )
                 string.draw(centeredAt: textPoint, angle: textAngle.radianFromDegree, withAttribute: self.labelAttribute)
             }
-            
             
             let headingString = "\(Int(round(geometry.heading)))" as NSString
             let headingSize = headingString.size(withAttributes: self.labelAttribute)
 
-            let headLength : CGFloat = headingSize.height
+            let headLength : CGFloat = geometry.headingHeadLength
             let headWidth : CGFloat = 10.0
 
-            let headingPoint = geometry.point(angle: heading, radius: geometry.baseRadius + headLength + textMargin + headingSize.height / 2.0)
+            let headingPoint = geometry.point(angle: heading, radius: geometry.baseRadius + headLength + geometry.textMargin + headingSize.height / 2.0)
             
             self.drawCone(degree: self.heading, width: headWidth, radiusHead: geometry.baseRadius, headLength: headLength, shaftLength: 0.0,
                           strokeColor: self.compassPointColor, fillColor: self.compassPointColor)
@@ -159,20 +168,27 @@ class HeadingIndicatorView: UIView {
         
     func drawWindCone(_ rect : CGRect){
         
-        let coneSize : CGFloat = 10.0
+        
         if let windHeading = windHeading {
             // Compute first as cheat to estimate height to go below heading string
-            let windHeadingString = "\(Int(round(windHeading)))" as NSString
+            let windHeadingString = "\(Int(round(windHeading))) @ \(Int(round(windSpeed)))" as NSString
             let windHeadingSize = windHeadingString.size(withAttributes: self.labelAttribute)
 
-            let windStartRadius = geometry.baseRadius * ( 1.0 - self.windSizePercent / 100.0 )
-            let windEndRadius = geometry.baseRadius + margin
+            let windStartRadius = geometry.windStartRadius(speed: self.windSpeed )
+            let windEndRadius = geometry.baseRadius
             
-            self.drawCone(degree: windHeading, width: coneSize, radiusHead: windStartRadius, headLength: margin, shaftLength: windEndRadius-windStartRadius, strokeColor: self.windConeColor, fillColor: self.windConeColor)
+            let coneWidth : CGFloat = geometry.windWidth(speed: self.windSpeed )
+            
+            self.drawCone(degree: windHeading,
+                          width: coneWidth,
+                          radiusHead: windStartRadius-geometry.headLength,
+                          headLength: geometry.headLength,
+                          shaftLength: windEndRadius-windStartRadius+geometry.headingHeadLength,
+                          strokeColor: self.windConeColor, fillColor: self.windConeColor)
             
             let textAngle = geometry.viewCoordinateAngle(heading: windHeading) + 90.0
 
-            let windHeadingPoint = geometry.point(angle: windHeading, radius: windStartRadius - textMargin - windHeadingSize.height/2.0)
+            let windHeadingPoint = geometry.point(angle: windHeading, radius: windStartRadius - geometry.headLength - geometry.textMargin - windHeadingSize.height/2.0)
             
             windHeadingString.draw(centeredAt: windHeadingPoint, angle: textAngle.radianFromDegree, withAttribute: self.labelAttribute)
             
@@ -181,10 +197,10 @@ class HeadingIndicatorView: UIView {
     
     override func draw(_ rect: CGRect) {
         self.geometry = HeadingIndicatorGeometry(rect: rect, heading: self.heading)
-        self.geometry.margin = self.margin
         
         self.drawCompass(rect)
         self.drawWindCone(rect)
+        self.drawRunway(rect)
     }
     
     //MARK: - element check
@@ -194,7 +210,7 @@ class HeadingIndicatorView: UIView {
      */
     func headingInCircle(point : CGPoint) -> CGFloat? {
         let distance = point.distance(to: geometry.center)
-        if distance > (geometry.baseRadius * 0.95 - self.margin ) {
+        if distance > (geometry.baseRadius * 0.95 - geometry.margin ) {
             return self.heading(point: point)
         }
         return nil
@@ -229,12 +245,13 @@ class HeadingIndicatorView: UIView {
     
     func increaseWindSpeed(percent : CGFloat){
         // for now just
-        self.windSpeed = max(0,percent+windSpeed)
+        self.windSpeed = min(max(0,percent+windSpeed),75)
     }
     
     func radius(point : CGPoint) -> CGFloat {
         return geometry.center.distance(to: point)
     }
+    
     func radiusPercent(point : CGPoint) -> CGFloat {
         return geometry.center.distance(to: point) / geometry.baseRadius * 100.0
     }
@@ -242,6 +259,15 @@ class HeadingIndicatorView: UIView {
     
     //MARK: - draw helper
     
+    /// Draw a cone
+    /// - Parameters:
+    ///   - degree: degree (in heading degree)
+    ///   - width: in degree
+    ///   - radiusHead: radius at end of point of head
+    ///   - headLength: size of the head
+    ///   - shaftLength: size of shaft (total size is headLength + shaftLength
+    ///   - strokeColor: color for outside stroke
+    ///   - fillColor: fill color wil be with 50% alpha
     func drawCone(degree : CGFloat, width : CGFloat, radiusHead : CGFloat, headLength : CGFloat, shaftLength : CGFloat, strokeColor : UIColor = .label, fillColor : UIColor = .systemFill) {
         let angleCenter = degree
         let angleLeft = angleCenter - (width / 2.0 )
