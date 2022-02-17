@@ -62,7 +62,6 @@ class HeadingIndicatorView: UIView {
     var windSizePercent : CGFloat { min(50.0,max(10.0, windSpeed)) }
 
     var geometry : HeadingIndicatorGeometry = HeadingIndicatorGeometry(rect: CGRect.zero, heading: 0.0)
-    
 
     /**
      Margin of the circle from view rect
@@ -80,9 +79,28 @@ class HeadingIndicatorView: UIView {
     //MARK: - draw elements
     
     func drawRunway(_ rect : CGRect){
-        let runwayWidth = geometry.baseRadius * 0.25
-        let runwayLength = geometry.baseRadius * 0.4
         let center = geometry.center
+
+        let runwayTargetWidth = geometry.baseRadius * 0.25
+        let runwayTargetLength = geometry.baseRadius * 0.4
+
+        // Fit center line + 3 stripe in each side:  stripes or 16 units (stripe + space) + 1 for left
+        let stripeEachSideCount : Int = 3
+        // how many unit of stripe space to fit
+        let stripeSpaceUnitcount : Int = (2/*two sides*/ * 2/*stripe + space*/ * stripeEachSideCount + 2 /*centerline*/ + 1 /*first offset*/)
+        let stripeWidth : CGFloat = ceil(runwayTargetWidth / CGFloat(stripeSpaceUnitcount) )
+        let stripeOffset : CGFloat = stripeWidth // same as stripe
+
+        let runwayWidth = CGFloat(stripeSpaceUnitcount) * stripeWidth
+
+        let centerLineStripeCount = 5
+        // space between line is XX percent of centerline height
+        let centerLineOffsetPercent = 20.0
+        let stripeHeight = ceil(runwayTargetLength / CGFloat(centerLineStripeCount) * ( 1.0 - centerLineOffsetPercent / 100.0))
+        let stripeHeightOffset = stripeHeight * centerLineOffsetPercent / 100.0
+        
+        let runwayLength = (stripeHeight + stripeHeightOffset) * CGFloat(centerLineStripeCount) + stripeHeightOffset
+
         let runwayTopLeft  = CGPoint(x: center.x - runwayWidth/2.0 , y: center.y-runwayLength/2.0)
         let runwayTopRight = CGPoint(x: center.x + runwayWidth/2.0 , y: center.y-runwayLength/2.0)
 
@@ -95,6 +113,43 @@ class HeadingIndicatorView: UIView {
         path.addLine(to: runwayBottomRight)
         path.addLine(to: runwayTopRight)
         path.stroke()
+
+        // Center Line
+        let centerLineWidth = 1.0
+        let x = center.x - centerLineWidth / 2.0
+        
+        for i in 2..<centerLineStripeCount {
+            let y = runwayBottomLeft.y - CGFloat(i+1) * (stripeHeightOffset + stripeHeight)
+            let centerLineRect = CGRect(x: x, y: y, width: centerLineWidth, height: stripeHeight)
+            let stripePath = UIBezierPath(roundedRect: centerLineRect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 0.0, height: 0.0))
+            stripePath.fill()
+        }
+        
+        let runwayNumber = "\(Int(round(heading/10.0)))" as NSString
+        let numberCenter = CGPoint(x: runwayBottomLeft.x + runwayWidth/2.0,
+                                   y: runwayBottomLeft.y -  (2*stripeHeightOffset + stripeHeight * 1.5) )
+        runwayNumber.draw(centeredAt: numberCenter, angle: 0, withAttribute: self.labelAttribute)
+        
+        // Each Side Stripe
+        for i in 0..<(2*stripeEachSideCount+1) {
+            // left side
+            for (xbase,xmult) : (CGFloat,Double) in [(runwayBottomLeft.x,1.0)/*, (runwayBottomRight.x-stripeOffset, -1.0)*/] {
+                let x = xbase + xmult * (stripeOffset + CGFloat(i) * (stripeWidth+stripeOffset));
+                let stripeRect = CGRect(x: x, y: runwayBottomLeft.y-stripeHeightOffset-stripeHeight, width: stripeWidth, height: stripeHeight)
+                let stripePath = UIBezierPath(roundedRect: stripeRect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 0.0, height: 0.0))
+                stripePath.fill()
+            }
+        }
+        
+        // Landing Stripe
+        let y = runwayBottomLeft.y - (stripeHeightOffset + (stripeHeightOffset + stripeHeight) * 3.5)
+        
+        for i in [-1,1] {
+            let x = center.x +  2 * stripeOffset * CGFloat(i) - stripeOffset/2.0
+            let stripeRect = CGRect(x: x, y: y, width: stripeWidth, height: stripeHeight)
+            let stripePath = UIBezierPath(roundedRect: stripeRect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 0.0, height: 0.0))
+            stripePath.fill()
+        }
     }
     
     func drawCompass(_ rect : CGRect){

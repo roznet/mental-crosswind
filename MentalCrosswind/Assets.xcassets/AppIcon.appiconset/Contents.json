@@ -21,21 +21,25 @@
       "size" : "29x29"
     },
     {
+      "filename" : "Spotlight Icon - 80x80.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "App Icon - 120x120-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
+      "filename" : "App Icon - 120x120.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+      "filename" : "App Icon - 180x180.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
