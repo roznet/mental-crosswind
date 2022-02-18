@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     func syncModelToView() {
         self.runwayTextField.text = self.runwayWindModel.runwayHeading.runwayDescription
-        self.headingIndicatorView.heading = self.runwayWindModel.runwayHeading.heading
+        self.headingIndicatorView.model = self.runwayWindModel
     }
 
     func syncViewToModel() {

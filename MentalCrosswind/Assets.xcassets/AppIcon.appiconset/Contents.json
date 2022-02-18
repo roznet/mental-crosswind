@@ -75,6 +75,7 @@
       "size" : "40x40"
     },
     {
+      "filename" : "App Icon iPad 76x76.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
@@ -85,11 +86,13 @@
       "size" : "76x76"
     },
     {
+      "filename" : "App Icon iPad Pro 167x167.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "App Icon Main - 1024x1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

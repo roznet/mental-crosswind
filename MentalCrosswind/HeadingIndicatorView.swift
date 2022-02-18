@@ -56,25 +56,37 @@ extension CGPoint {
 }
 
 class HeadingIndicatorView: UIView {
-    var heading : CGFloat = 0.0 { didSet { self.geometry.heading = heading } }
-    var windHeading : CGFloat? = 190.0
-    var windSpeed : CGFloat = 20.0
-    var windSizePercent : CGFloat { min(50.0,max(10.0, windSpeed)) }
-
+    enum DisplayWind {
+        case hidden
+        case wind
+        case windAndGust
+        
+        var enabled : Bool { return self != .hidden }
+    }
+    
+    enum DisplayCrossWindComponent {
+        case hidden
+        case speed
+        case hint
+        
+        var enabled : Bool { return self != .hidden }
+    }
+    
+    var model : RunwayWindModel = RunwayWindModel()
+    var displayWind : DisplayWind = .wind
+    var displayCrossWind : DisplayCrossWindComponent = .hidden
     var geometry : HeadingIndicatorGeometry = HeadingIndicatorGeometry(rect: CGRect.zero, heading: 0.0)
 
-    /**
-     Margin of the circle from view rect
-     */
-    
-    
     var circleColor : UIColor = UIColor.label
     var compassPointColor : UIColor = UIColor.label
-    
     var windConeColor : UIColor = UIColor.systemRed
-    
     var labelAttribute : [NSAttributedString.Key : Any]? = nil
         
+    // for now keep heading and runway consistent
+    private var heading : CGFloat { CGFloat(self.model.runwayHeading.heading)}
+    private var windHeading : CGFloat { return self.model.windDirection.heading }
+    private var windSpeed : CGFloat { return self.model.windSpeed.speed }
+    private var windSizePercent : CGFloat { min(50.0,max(10.0, windSpeed)) }
     
     //MARK: - draw elements
     
@@ -222,9 +234,7 @@ class HeadingIndicatorView: UIView {
     }
         
     func drawWindCone(_ rect : CGRect){
-        
-        
-        if let windHeading = windHeading {
+        if self.displayWind.enabled {
             // Compute first as cheat to estimate height to go below heading string
             let windHeadingString = "\(Int(round(windHeading))) @ \(Int(round(windSpeed)))" as NSString
             let windHeadingSize = windHeadingString.size(withAttributes: self.labelAttribute)
@@ -272,7 +282,7 @@ class HeadingIndicatorView: UIView {
     }
 
     func headingInWindCone(point : CGPoint) -> CGFloat? {
-        if let windHeading = windHeading {
+        if displayWind.enabled {
             let heading = self.heading(point: point)
             if abs( heading - windHeading ) < 10 {
                 return heading
@@ -289,18 +299,19 @@ class HeadingIndicatorView: UIView {
     }
 
     func rotateHeading(degree : CGFloat){
-        self.heading = (self.heading - degree + 360.0).truncatingRemainder(dividingBy: 360.0)
+        // minus sign because rotation in screen is opposite
+        self.model.rotateHeading(degree: -Int(degree))
     }
     
     func rotateWind(degree : CGFloat){
-        if let windHeading = windHeading {
-            self.windHeading = (windHeading + degree + 360.0).truncatingRemainder(dividingBy: 360.0)
+        if displayWind.enabled {
+            self.model.windDirection.rotate(degree: Int(degree))
         }
     }
     
     func increaseWindSpeed(percent : CGFloat){
         // for now just
-        self.windSpeed = min(max(0,percent+windSpeed),75)
+        self.model.windSpeed.increase(speed: Int(percent))
     }
     
     func radius(point : CGPoint) -> CGFloat {

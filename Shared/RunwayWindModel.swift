@@ -159,6 +159,20 @@ import AVFoundation
         return "\(xwind.description)deg \(from)  Cross=\(xcomponent)kts Head=\(direct)kts"
     }
     
+    //MARK: - change values
+    func rotateHeading(degree : Int){
+        self.runwayHeading.rotate(degree: degree)
+    }
+    
+    func rotateWind(degree : Int){
+        self.windDirection.rotate(degree: degree)
+    }
+    
+    func increaseWind(speed : Int, maximumSpeed : Int = 75){
+        self.windSpeed.increase(speed: speed)
+        self.windSpeed.cap(at: maximumSpeed)
+    }
+    
 }
 
 extension RunwayWindModel : AVSpeechSynthesizerDelegate {

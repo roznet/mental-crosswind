@@ -93,6 +93,10 @@ struct Heading {
         return __cospi(self.absoluteDifference(with: other).heading/180.0)
     }
 
+    mutating func rotate(degree : Int){
+        self.roundedHeading = (self.roundedHeading + degree + 360) % 360
+    }
+
     
 }
 

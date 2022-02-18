@@ -8,11 +8,11 @@
 import Foundation
 
 struct Speed {
-    var roundedSpeed : Int
+    private var roundedSpeed : Int
     
     var speed : Double {
         get { Double(self.roundedSpeed) }
-        set { self.roundedSpeed = Int(round(newValue)) }
+        set { self.roundedSpeed = max(0,Int(round(newValue))) }
     }
     
     var description : String {
@@ -28,4 +28,13 @@ struct Speed {
         self.roundedSpeed = Int(round(speed))
     }
     
+    mutating func increase(speed : Int){
+        self.roundedSpeed = max(0, speed + self.roundedSpeed)
+    }
+    
+    mutating func cap(at : Int){
+        if roundedSpeed > at {
+            roundedSpeed = at
+        }
+    }
 }
