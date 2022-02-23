@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4206AF9527BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */; };
+		421E8BF927C2C87900A9B264 /* WindComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E8BF827C2C87900A9B264 /* WindComponentsView.swift */; };
 		42875C8C27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8D27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8E27B9235000E47BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7D27B9234D00E47BB5 /* ContentView.swift */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingIndicatorGeometry.swift; sourceTree = "<group>"; };
+		421E8BF827C2C87900A9B264 /* WindComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindComponentsView.swift; sourceTree = "<group>"; };
 		42875C7C27B9234D00E47BB5 /* xwindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xwindApp.swift; sourceTree = "<group>"; };
 		42875C7D27B9234D00E47BB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42875C7E27B9235000E47BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -205,9 +207,10 @@
 			children = (
 				4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */,
 				42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */,
+				421E8BF827C2C87900A9B264 /* WindComponentsView.swift */,
+				42B7C4A927B9A665007C59F8 /* ViewController.swift */,
 				42B7C4A527B9A665007C59F8 /* AppDelegate.swift */,
 				42B7C4A727B9A665007C59F8 /* SceneDelegate.swift */,
-				42B7C4A927B9A665007C59F8 /* ViewController.swift */,
 				42B7C4AB27B9A665007C59F8 /* Main.storyboard */,
 				42B7C4AE27B9A666007C59F8 /* Assets.xcassets */,
 				42B7C4B027B9A666007C59F8 /* LaunchScreen.storyboard */,
@@ -488,6 +491,7 @@
 				42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */,
 				4206AF9527BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift in Sources */,
 				42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */,
+				421E8BF927C2C87900A9B264 /* WindComponentsView.swift in Sources */,
 				42B7C4AA27B9A665007C59F8 /* ViewController.swift in Sources */,
 				42B7C4A627B9A665007C59F8 /* AppDelegate.swift in Sources */,
 				42B7C4D527B9A67E007C59F8 /* Speed.swift in Sources */,

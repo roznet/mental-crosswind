@@ -37,7 +37,7 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jl6-ux-3vG" customClass="HeadingIndicatorView" customModule="MentalCrosswind" customModuleProvider="target">
                                 <rect key="frame" x="5" y="136" width="404" height="485"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jl6-ux-3vG" secondAttribute="height" multiplier="1:1.2" id="Tqq-jm-DTf"/>
@@ -48,13 +48,71 @@
                                     <outletCollection property="gestureRecognizers" destination="BTF-Sa-gsM" appends="YES" id="iOL-LA-hae"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPL-gs-1XB" customClass="WindComponentsView" customModule="MentalCrosswind" customModuleProvider="target">
+                                <rect key="frame" x="5" y="629" width="404" height="217"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="190 @ 17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga3-Ig-bNu" userLabel="Wind">
+                                        <rect key="frame" x="36" y="8" width="101" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="am5-PK-KBP">
+                                        <rect key="frame" x="169" y="164.5" width="50" height="50"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="arrow.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5OO-r2-yt3">
+                                        <rect key="frame" x="169" y="92" width="50" height="50"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="50deg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qX-hv-x9W">
+                                        <rect key="frame" x="61" y="46" width="50" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Runway 24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20D-9M-3Fd">
+                                        <rect key="frame" x="297" y="13" width="84" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="75%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aex-d6-nxb">
+                                        <rect key="frame" x="248" y="179" width="35" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6T-vs-yzu">
+                                        <rect key="frame" x="65" y="107" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="am5-PK-KBP" firstAttribute="centerX" secondItem="UPL-gs-1XB" secondAttribute="centerX" id="91G-ix-a3r"/>
+                                    <constraint firstItem="5OO-r2-yt3" firstAttribute="centerX" secondItem="UPL-gs-1XB" secondAttribute="centerX" id="Jxd-fx-wJZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="am5-PK-KBP" secondAttribute="bottom" id="LDu-eh-W7a"/>
+                                    <constraint firstItem="ga3-Ig-bNu" firstAttribute="top" secondItem="UPL-gs-1XB" secondAttribute="top" id="h3V-5M-UKE"/>
+                                    <constraint firstItem="5OO-r2-yt3" firstAttribute="top" secondItem="ga3-Ig-bNu" secondAttribute="bottom" constant="8" symbolic="YES" id="lAR-j0-Nkq"/>
+                                    <constraint firstItem="ga3-Ig-bNu" firstAttribute="centerX" secondItem="UPL-gs-1XB" secondAttribute="centerX" id="pL2-6a-LHs"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jl6-ux-3vG" secondAttribute="trailing" constant="5" id="A61-Lj-iVv"/>
+                            <constraint firstItem="UPL-gs-1XB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="AZv-vC-5ma"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UPL-gs-1XB" secondAttribute="bottom" constant="16" id="CK1-E3-bko"/>
+                            <constraint firstItem="UPL-gs-1XB" firstAttribute="top" secondItem="Jl6-ux-3vG" secondAttribute="bottom" constant="8" symbolic="YES" id="Jm6-sN-5Wi"/>
                             <constraint firstItem="iJu-A8-IT5" firstAttribute="firstBaseline" secondItem="fuV-FR-fO8" secondAttribute="firstBaseline" id="KVq-jH-kec"/>
                             <constraint firstItem="iJu-A8-IT5" firstAttribute="leading" secondItem="fuV-FR-fO8" secondAttribute="trailing" constant="117" id="KbW-Pa-ex5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UPL-gs-1XB" secondAttribute="trailing" constant="5" id="M4b-2S-rqD"/>
                             <constraint firstItem="Jl6-ux-3vG" firstAttribute="top" secondItem="xHy-Ps-9TZ" secondAttribute="bottom" constant="15" id="Wjq-8v-Qus"/>
                             <constraint firstItem="xHy-Ps-9TZ" firstAttribute="top" secondItem="fuV-FR-fO8" secondAttribute="bottom" constant="15" id="XfT-fm-Bsc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iJu-A8-IT5" secondAttribute="trailing" constant="65" id="Yep-Od-xoB"/>
@@ -90,11 +148,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.down" catalog="system" width="120" height="128"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.syncModelToView()
         // Do any additional setup after loading the view.
+        self.headingIndicatorView.labelAttribute = [ .foregroundColor: UIColor.label]
     }
 
     //MARK: - Actions
@@ -120,10 +121,7 @@ class ViewController: UIViewController {
         self.syncViewToModel()
         self.runwayWindModel.randomizeWind()
         self.clearAnalysisFromView()
-        
-        print( self.runwayWindModel.announce)
-        print( self.runwayWindModel.analyse() )
-        
+                
         self.runwayWindModel.speak() {
             self.startUpdateSequence()
         }

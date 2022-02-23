@@ -40,7 +40,6 @@ struct HeadingIndicatorGeometry {
         let speedRadius : CGFloat = self.windMinRadius + (speed - minRadiusSpeed)/(maxRadiusSpeed - minRadiusSpeed) * (self.windMaxRadius-self.windMinRadius)
         
         let rv = min( self.windMinRadius, max( self.windMaxRadius, speedRadius) )
-        print( "\(speed): \(rv)")
         return rv
     }
     
