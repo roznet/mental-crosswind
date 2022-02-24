@@ -16,7 +16,7 @@ struct Speed {
     }
     
     var description : String {
-        get { "\(roundedSpeed)" }
+        get { "\(roundedSpeed)kts" }
         set { if let x = Int(newValue) { roundedSpeed = x } else { roundedSpeed = 0 } }
     }
     
@@ -37,4 +37,10 @@ struct Speed {
             roundedSpeed = at
         }
     }
+    
+    static func *(_ speed : Speed, _ percent : Percent) -> Speed {
+        return Speed(speed: speed.speed * percent.percent)
+    }
+
 }
+

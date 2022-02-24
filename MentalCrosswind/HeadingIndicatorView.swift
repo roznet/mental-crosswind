@@ -84,7 +84,7 @@ class HeadingIndicatorView: UIView {
         
     // for now keep heading and runway consistent
     private var heading : CGFloat { CGFloat(self.model.runwayHeading.heading)}
-    private var windHeading : CGFloat { return self.model.windDirection.heading }
+    private var windHeading : CGFloat { return self.model.windHeading.heading }
     private var windSpeed : CGFloat { return self.model.windSpeed.speed }
     private var windSizePercent : CGFloat { min(50.0,max(10.0, windSpeed)) }
     
@@ -305,7 +305,7 @@ class HeadingIndicatorView: UIView {
     
     func rotateWind(degree : CGFloat){
         if displayWind.enabled {
-            self.model.windDirection.rotate(degree: Int(degree))
+            self.model.windHeading.rotate(degree: Int(degree))
         }
     }
     

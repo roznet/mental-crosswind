@@ -13,6 +13,23 @@ struct Heading {
         case right
         case ahead
         case behind
+        
+        var arrow : String {
+            switch self {
+            case .left: return "⬅"
+            case .right: return "➡"
+            case .ahead: return "⬇"
+            case .behind: return "⬆"
+            }
+        }
+        var description : String {
+            switch self {
+            case .left: return "Left"
+            case .right: return "Right"
+            case .ahead: return "Head"
+            case .behind: return "Tail"
+            }
+        }
     }
     
     private(set) var roundedHeading : Int
@@ -23,7 +40,7 @@ struct Heading {
     }
     
     var description : String {
-        get { let x = Int(round(heading)); return "\(x)" }
+        get { let x = Int(round(heading)); return "\(x)°" }
         set { if let x = Int(newValue) { self.roundedHeading = x } }
     }
     
@@ -85,12 +102,12 @@ struct Heading {
         }
     }
     
-    func crossComponentPercent(with other : Heading) -> Double {
-        return __sinpi(self.absoluteDifference(with: other).heading/180.0)
+    func crossWindComponent(with other : Heading) -> Percent {
+        return Percent(percent:__sinpi(self.absoluteDifference(with: other).heading/180.0))
     }
     
-    func directComponentPercent(with other : Heading) -> Double {
-        return __cospi(self.absoluteDifference(with: other).heading/180.0)
+    func headWindComponent(with other : Heading) -> Percent {
+        return Percent(percent: __cospi(self.absoluteDifference(with: other).heading/180.0))
     }
 
     mutating func rotate(degree : Int){

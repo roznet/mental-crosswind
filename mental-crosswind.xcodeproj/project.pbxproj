@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4206AF9527BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */; };
 		421E8BF927C2C87900A9B264 /* WindComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E8BF827C2C87900A9B264 /* WindComponentsView.swift */; };
+		421E8BFB27C7D57B00A9B264 /* Percent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E8BFA27C7D57B00A9B264 /* Percent.swift */; };
 		42875C8C27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8D27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8E27B9235000E47BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7D27B9234D00E47BB5 /* ContentView.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingIndicatorGeometry.swift; sourceTree = "<group>"; };
 		421E8BF827C2C87900A9B264 /* WindComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindComponentsView.swift; sourceTree = "<group>"; };
+		421E8BFA27C7D57B00A9B264 /* Percent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Percent.swift; path = Shared/Percent.swift; sourceTree = "<group>"; };
 		42875C7C27B9234D00E47BB5 /* xwindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xwindApp.swift; sourceTree = "<group>"; };
 		42875C7D27B9234D00E47BB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42875C7E27B9235000E47BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				42910E4327BA3E4500319492 /* RunwayWindModel.swift */,
 				42875C9E27B96F9400E47BB5 /* Heading.swift */,
 				42875CA127B975E600E47BB5 /* Speed.swift */,
+				421E8BFA27C7D57B00A9B264 /* Percent.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				42910E4627BA3E4500319492 /* RunwayWindModel.swift in Sources */,
 				42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */,
 				4206AF9527BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift in Sources */,
+				421E8BFB27C7D57B00A9B264 /* Percent.swift in Sources */,
 				42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */,
 				421E8BF927C2C87900A9B264 /* WindComponentsView.swift in Sources */,
 				42B7C4AA27B9A665007C59F8 /* ViewController.swift in Sources */,
