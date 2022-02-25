@@ -106,12 +106,18 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MzX-2t-u8U">
+                                                                <rect key="frame" x="62.5" y="-20" width="19.5" height="123"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
+                                                            <constraint firstItem="MzX-2t-u8U" firstAttribute="centerY" secondItem="3qX-hv-x9W" secondAttribute="centerY" id="6Q3-0d-yQB"/>
                                                             <constraint firstAttribute="bottom" secondItem="3qX-hv-x9W" secondAttribute="bottom" id="HoO-Jp-bcB"/>
                                                             <constraint firstAttribute="trailing" secondItem="FKw-lO-141" secondAttribute="trailing" id="Tpt-i7-Q1W"/>
+                                                            <constraint firstItem="3qX-hv-x9W" firstAttribute="leading" secondItem="MzX-2t-u8U" secondAttribute="trailing" id="UQn-WV-z9O"/>
                                                             <constraint firstItem="3qX-hv-x9W" firstAttribute="trailing" secondItem="FKw-lO-141" secondAttribute="trailing" id="aU4-IJ-Hv9"/>
+                                                            <constraint firstItem="MzX-2t-u8U" firstAttribute="height" secondItem="3qX-hv-x9W" secondAttribute="height" multiplier="7.52941" id="gb7-ov-55i"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="75%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aex-d6-nxb">
@@ -162,12 +168,15 @@
                     </view>
                     <connections>
                         <outlet property="crossWindComponentLabel" destination="UD2-MT-Dot" id="fOC-g9-qpc"/>
+                        <outlet property="crossWindDirectionImage" destination="am5-PK-KBP" id="cO0-W6-qsG"/>
                         <outlet property="crossWindSpeedLabel" destination="N6T-vs-yzu" id="NC0-e2-wxS"/>
                         <outlet property="headWindComponentLabel" destination="aex-d6-nxb" id="mSV-fz-x2O"/>
+                        <outlet property="headWindDirectionImage" destination="5OO-r2-yt3" id="5MP-IO-FoI"/>
                         <outlet property="headWindSpeedLabel" destination="2gw-te-a2a" id="Etz-Ku-8py"/>
                         <outlet property="headingIndicatorView" destination="Jl6-ux-3vG" id="egz-qP-HpB"/>
                         <outlet property="runwayTextField" destination="FKw-lO-141" id="4sD-cb-Yb0"/>
                         <outlet property="windLabel" destination="ga3-Ig-bNu" id="vJI-5K-WhV"/>
+                        <outlet property="windRunwayOffsetImage" destination="MzX-2t-u8U" id="62T-K7-hMT"/>
                         <outlet property="windRunwayOffsetLabel" destination="3qX-hv-x9W" id="pXa-cj-zgw"/>
                     </connections>
                 </viewController>

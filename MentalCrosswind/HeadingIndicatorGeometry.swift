@@ -16,6 +16,9 @@ struct HeadingIndicatorGeometry {
     var heading : CGFloat
     var margin : CGFloat { return maxRadius * 0.10 }
     
+    /// rotation in degree 0.0 is due north, positive rotation right, negative rotate left
+    var rotationAngle : CGFloat = 0.0
+    
     /*
      * Configuration for size of tick on the compass
      */
@@ -55,7 +58,7 @@ struct HeadingIndicatorGeometry {
      * for example if heading is 0 (north up), East (90) should be 0.0 in screen coordinate
      */
     func viewCoordinateAngle(heading from: CGFloat) -> CGFloat {
-        return ((from - heading) - 90.0 + 360.0).truncatingRemainder(dividingBy: 360.0)
+        return ((from - heading + rotationAngle) - 90.0 + 360.0).truncatingRemainder(dividingBy: 360.0)
     }
 
     func point(angle : CGFloat, radius : CGFloat) -> CGPoint {

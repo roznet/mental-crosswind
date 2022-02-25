@@ -19,6 +19,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var headWindComponentLabel: UILabel!
     @IBOutlet weak var crossWindComponentLabel: UILabel!
     
+    @IBOutlet weak var headWindDirectionImage: UIImageView!
+    @IBOutlet weak var crossWindDirectionImage: UIImageView!
+    @IBOutlet weak var windRunwayOffsetImage: UIImageView!
+    
     var displayWindLabel : Bool = true
     var displayWindSpeed : Bool = true
     var displayWindComponent : Bool = true
@@ -36,7 +40,8 @@ class ViewController: UIViewController {
         if displayWindLabel {
             self.windLabel.text = runwayWindModel.windDisplay
             self.windLabel.isHidden = false
-            self.windRunwayOffsetLabel.text = "\(runwayWindModel.crossWindDirection.arrow) \(runwayWindModel.windRunwayOffset.description)"
+            self.windRunwayOffsetLabel.text = runwayWindModel.windRunwayOffset.description
+            self.windRunwayOffsetImage.image = runwayWindModel.crossWindDirection.image
         }else{
             self.windLabel.isHidden = true
         }
@@ -59,6 +64,15 @@ class ViewController: UIViewController {
             self.headWindComponentLabel.isHidden = true
             self.crossWindComponentLabel.isHidden = true
             
+        }
+        if displayWindComponent || displayWindSpeed {
+            self.crossWindDirectionImage.image = runwayWindModel.crossWindDirection.image
+            self.crossWindDirectionImage.isHidden = false
+            self.headWindDirectionImage.isHidden = false
+
+        }else{
+            self.crossWindDirectionImage.isHidden = true
+            self.headWindDirectionImage.isHidden = true
         }
 
     }

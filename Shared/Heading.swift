@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Heading {
     enum Direction {
@@ -28,6 +29,19 @@ struct Heading {
             case .right: return "Right"
             case .ahead: return "Head"
             case .behind: return "Tail"
+            }
+        }
+        
+        var image : UIImage? {
+            switch self {
+            case .left:
+                return UIImage(systemName: "arrow.left")
+            case .right:
+                return UIImage(systemName: "arrow.right")
+            case .behind:
+                return UIImage(systemName: "arrow.up")
+            case .ahead:
+                return UIImage(systemName: "arrow.down")
             }
         }
     }
