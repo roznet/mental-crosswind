@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var runwayTextField: UITextField!
     @IBOutlet weak var headingIndicatorView: HeadingIndicatorView!
+    @IBOutlet weak var displayHideButton: UIButton!
     
     // Wind Compoent View
     @IBOutlet weak var windLabel: UILabel!
@@ -21,8 +22,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var headWindDirectionImage: UIImageView!
     @IBOutlet weak var crossWindDirectionImage: UIImageView!
-    @IBOutlet weak var windRunwayOffsetImage: UIImageView!
-    
+
     var displayWindLabel : Bool = true
     var displayWindSpeed : Bool = true
     var displayWindComponent : Bool = true
@@ -40,8 +40,6 @@ class ViewController: UIViewController {
         if displayWindLabel {
             self.windLabel.text = runwayWindModel.windDisplay
             self.windLabel.isHidden = false
-            self.windRunwayOffsetLabel.text = runwayWindModel.windRunwayOffset.description
-            self.windRunwayOffsetImage.image = runwayWindModel.crossWindDirection.image
         }else{
             self.windLabel.isHidden = true
         }
@@ -57,13 +55,15 @@ class ViewController: UIViewController {
         if displayWindComponent {
             self.crossWindComponentLabel.text = runwayWindModel.crossWindComponent.description
             self.headWindComponentLabel.text = runwayWindModel.headWindComponent.description
+            self.windRunwayOffsetLabel.text = runwayWindModel.windRunwayOffset.description
             self.headWindComponentLabel.isHidden = false
             self.crossWindComponentLabel.isHidden = false
+            self.windRunwayOffsetLabel.isHidden = false
 
         }else{
             self.headWindComponentLabel.isHidden = true
             self.crossWindComponentLabel.isHidden = true
-            
+            self.windRunwayOffsetLabel.isHidden = true
         }
         if displayWindComponent || displayWindSpeed {
             self.crossWindDirectionImage.image = runwayWindModel.crossWindDirection.image
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
             self.crossWindDirectionImage.isHidden = true
             self.headWindDirectionImage.isHidden = true
         }
-
+        self.headingIndicatorView.setNeedsDisplay()
     }
 
     func syncViewToModel() {
@@ -100,6 +100,17 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.syncModelToView()
+        Metar.metar(icao: "EGLF"){ metar in
+            if let metar = metar {
+                self.runwayWindModel.windHeading = Heading(roundedHeading: metar.wind_direction.value)
+                self.runwayWindModel.windSpeed = Speed(roundedSpeed: metar.wind_speed.value)
+                DispatchQueue.main.async {
+                    self.syncModelToView()
+                }
+                
+            }
+            
+        }
     }
 
     
@@ -196,6 +207,24 @@ class ViewController: UIViewController {
     
     func startUpdateSequence() {
         
+    }
+    @IBAction func displayHideButton(_ sender: Any) {
+        if displayWindSpeed {
+            self.displayWindSpeed = false
+            self.displayWindComponent = false
+            self.displayWindLabel = false
+            self.displayHideButton.titleLabel?.text = "Display"
+        }else{
+            self.displayWindSpeed = true
+            self.displayWindComponent = true
+            self.displayWindLabel = true
+            self.displayHideButton.titleLabel?.text = "Hide"
+        }
+        self.syncModelToView()
+        self.view.setNeedsDisplay()
+    }
+    
+    @IBAction func practiceButton(_ sender: Any) {
     }
     
 }

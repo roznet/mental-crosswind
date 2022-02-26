@@ -10,6 +10,9 @@
 		4206AF9527BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */; };
 		421E8BF927C2C87900A9B264 /* WindComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E8BF827C2C87900A9B264 /* WindComponentsView.swift */; };
 		421E8BFB27C7D57B00A9B264 /* Percent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E8BFA27C7D57B00A9B264 /* Percent.swift */; };
+		421E8C0727CA738E00A9B264 /* Metar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E8C0627CA738E00A9B264 /* Metar.swift */; };
+		421E8C0927CA843700A9B264 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E8C0827CA843700A9B264 /* Secrets.swift */; };
+		421E8C0B27CA856C00A9B264 /* secrets.json in Resources */ = {isa = PBXBuildFile; fileRef = 421E8C0A27CA856C00A9B264 /* secrets.json */; };
 		42875C8C27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8D27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8E27B9235000E47BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7D27B9234D00E47BB5 /* ContentView.swift */; };
@@ -66,6 +69,9 @@
 		4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingIndicatorGeometry.swift; sourceTree = "<group>"; };
 		421E8BF827C2C87900A9B264 /* WindComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindComponentsView.swift; sourceTree = "<group>"; };
 		421E8BFA27C7D57B00A9B264 /* Percent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Percent.swift; path = Shared/Percent.swift; sourceTree = "<group>"; };
+		421E8C0627CA738E00A9B264 /* Metar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Metar.swift; path = MentalCrosswind/Metar.swift; sourceTree = "<group>"; };
+		421E8C0827CA843700A9B264 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Secrets.swift; path = MentalCrosswind/Secrets.swift; sourceTree = "<group>"; };
+		421E8C0A27CA856C00A9B264 /* secrets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = secrets.json; path = MentalCrosswind/secrets.json; sourceTree = "<group>"; };
 		42875C7C27B9234D00E47BB5 /* xwindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xwindApp.swift; sourceTree = "<group>"; };
 		42875C7D27B9234D00E47BB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42875C7E27B9235000E47BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,9 +146,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		421E8C0527CA735100A9B264 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				421E8C0A27CA856C00A9B264 /* secrets.json */,
+				421E8C0627CA738E00A9B264 /* Metar.swift */,
+				421E8C0827CA843700A9B264 /* Secrets.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		42875C7627B9234D00E47BB5 = {
 			isa = PBXGroup;
 			children = (
+				421E8C0527CA735100A9B264 /* API */,
 				42875C9D27B96F7B00E47BB5 /* Model */,
 				42875C7B27B9234D00E47BB5 /* Shared */,
 				42875C8A27B9235000E47BB5 /* macOS */,
@@ -432,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42B7C4B227B9A666007C59F8 /* LaunchScreen.storyboard in Resources */,
+				421E8C0B27CA856C00A9B264 /* secrets.json in Resources */,
 				42B7C4AF27B9A666007C59F8 /* Assets.xcassets in Resources */,
 				42B7C4AD27B9A665007C59F8 /* Main.storyboard in Resources */,
 			);
@@ -491,9 +509,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				42910E4627BA3E4500319492 /* RunwayWindModel.swift in Sources */,
+				421E8C0927CA843700A9B264 /* Secrets.swift in Sources */,
 				42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */,
 				4206AF9527BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift in Sources */,
 				421E8BFB27C7D57B00A9B264 /* Percent.swift in Sources */,
+				421E8C0727CA738E00A9B264 /* Metar.swift in Sources */,
 				42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */,
 				421E8BF927C2C87900A9B264 /* WindComponentsView.swift in Sources */,
 				42B7C4AA27B9A665007C59F8 /* ViewController.swift in Sources */,
