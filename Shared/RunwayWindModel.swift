@@ -42,8 +42,12 @@ import AVFoundation
         return self.windSpeed * crossWindComponent
     }
     
+    var directWindDirection : Heading.Direction {
+        return self.windHeading.directDirection(to: self.runwayHeading)
+    }
+    
     var crossWindDirection : Heading.Direction {
-        return self.windHeading.direction(to: self.runwayHeading)
+        return self.windHeading.crossDirection(to: self.runwayHeading)
     }
     
     var headWindComponent : Percent {
@@ -184,7 +188,7 @@ import AVFoundation
     
     func analyse() -> String {
         let xwind = self.runwayHeading.absoluteDifference(with: self.windHeading)
-        let from = self.runwayHeading.direction(to: self.windHeading)
+        let from = self.runwayHeading.crossDirection(to: self.windHeading)
         
         return "\(xwind.description)deg \(from)  Cross=\(self.crossWindSpeed.description)kts Head=\(self.headWindSpeed.description)kts"
     }

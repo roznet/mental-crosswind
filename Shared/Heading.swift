@@ -100,8 +100,23 @@ struct Heading {
             return Heading(roundedHeading: diff)
         }
     }
-    
-    func direction(to other: Heading) -> Direction {
+
+    func directDirection(to other: Heading) -> Direction {
+        let diff = self.absoluteDifference(with: other)
+        if diff.roundedHeading < 90 {
+            return .ahead
+        }else if diff.roundedHeading > 90 {
+            return .behind
+        }else{
+            if( self + diff == other){
+                return .right
+            }else{
+                return .left
+            }
+        }
+    }
+
+    func crossDirection(to other: Heading) -> Direction {
         let diff = self.absoluteDifference(with: other)
         if diff.roundedHeading == 0 {
             return .ahead
@@ -117,11 +132,11 @@ struct Heading {
     }
     
     func crossWindComponent(with other : Heading) -> Percent {
-        return Percent(percent:__sinpi(self.absoluteDifference(with: other).heading/180.0))
+        return Percent(percent: abs(__sinpi(self.absoluteDifference(with: other).heading/180.0)))
     }
     
     func headWindComponent(with other : Heading) -> Percent {
-        return Percent(percent: __cospi(self.absoluteDifference(with: other).heading/180.0))
+        return Percent(percent: abs(__cospi(self.absoluteDifference(with: other).heading/180.0)))
     }
 
     mutating func rotate(degree : Int){

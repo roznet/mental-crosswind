@@ -67,6 +67,7 @@ class ViewController: UIViewController {
         }
         if displayWindComponent || displayWindSpeed {
             self.crossWindDirectionImage.image = runwayWindModel.crossWindDirection.image
+            self.headWindDirectionImage.image = runwayWindModel.directWindDirection.image
             self.crossWindDirectionImage.isHidden = false
             self.headWindDirectionImage.isHidden = false
 
