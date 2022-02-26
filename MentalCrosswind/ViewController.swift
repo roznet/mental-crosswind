@@ -101,16 +101,17 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.syncModelToView()
-        Metar.metar(icao: "EGLF"){ metar in
-            if let metar = metar {
-                self.runwayWindModel.windHeading = Heading(roundedHeading: metar.wind_direction.value)
-                self.runwayWindModel.windSpeed = Speed(roundedSpeed: metar.wind_speed.value)
-                DispatchQueue.main.async {
-                    self.syncModelToView()
+        if let icao = UserDefaults.standard.string(forKey: "default-airport-icao") {
+            Metar.metar(icao: icao){ metar in
+                if let metar = metar {
+                    self.runwayWindModel.windHeading = Heading(roundedHeading: metar.wind_direction.value)
+                    self.runwayWindModel.windSpeed = Speed(roundedSpeed: metar.wind_speed.value)
+                    DispatchQueue.main.async {
+                        self.syncModelToView()
+                    }
+                    
                 }
-                
             }
-            
         }
     }
 
