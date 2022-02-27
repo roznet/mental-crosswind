@@ -15,11 +15,15 @@ struct Speed {
         set { self.roundedSpeed = max(0,Int(round(newValue))) }
     }
     
-    var description : String {
+    var descriptionWithUnit : String {
         get { "\(roundedSpeed)kts" }
+    }
+
+    var description : String {
+        get { "\(roundedSpeed)" }
         set { if let x = Int(newValue) { roundedSpeed = x } else { roundedSpeed = 0 } }
     }
-    
+
     init( roundedSpeed : Int){
         self.roundedSpeed = roundedSpeed
     }

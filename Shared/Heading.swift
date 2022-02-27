@@ -53,8 +53,12 @@ struct Heading {
         set { self.roundedHeading = Int(round(newValue)) % 360 }
     }
     
-    var description : String {
+    var descriptionWithUnit : String {
         get { let x = Int(round(heading)); return "\(x)°" }
+    }
+    
+    var description : String {
+        get { let x = Int(round(heading)); return "\(x)" }
         set { if let x = Int(newValue) { self.roundedHeading = x } }
     }
     

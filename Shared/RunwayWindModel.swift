@@ -86,13 +86,22 @@ import AVFoundation
         }
     }
     
+    var windcheck : String {
+        return "Wind: \(self.announce)"
+    }
+    
     var clearance : String {
         let eRunway = self.enunciate(number: self.runwayHeading.runwayDescription)
         return "Wind: \(self.announce), Runway \(eRunway), Clear to land"
     }
     
-    func speak( completion : @escaping ()->Void = {}){
-        let utterance = AVSpeechUtterance(string: self.clearance )
+    enum SpeechType {
+        case clearance, windcheck
+    }
+    
+    func speak( which : SpeechType = .clearance, completion : @escaping ()->Void = {}){
+        
+        let utterance = AVSpeechUtterance(string: which == .clearance ? self.clearance : self.windcheck )
         utterance.rate = 0.5 + (Float.random(in: 0..<10)/1000.0)
         utterance.pitchMultiplier = 0.8 + (Float.random(in: 0..<10)/1000.0)
         utterance.postUtteranceDelay = 0.2
@@ -104,7 +113,6 @@ import AVFoundation
         }
         
         let voice = available[ Int.random(in: 0 ..< available.count)]
-        print( voice )
         utterance.voice = voice
         self.synthetizer = AVSpeechSynthesizer()
         self.completion = completion

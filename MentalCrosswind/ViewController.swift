@@ -44,8 +44,8 @@ class ViewController: UIViewController {
             self.windLabel.isHidden = true
         }
         if displayWindSpeed {
-            self.crossWindSpeedLabel.text = runwayWindModel.crossWindSpeed.description
-            self.headWindSpeedLabel.text = runwayWindModel.headWindSpeed.description
+            self.crossWindSpeedLabel.text = runwayWindModel.crossWindSpeed.descriptionWithUnit
+            self.headWindSpeedLabel.text = runwayWindModel.headWindSpeed.descriptionWithUnit
             self.headWindSpeedLabel.isHidden = false
             self.crossWindSpeedLabel.isHidden = false
         }else{
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         if displayWindComponent {
             self.crossWindComponentLabel.text = runwayWindModel.crossWindComponent.description
             self.headWindComponentLabel.text = runwayWindModel.headWindComponent.description
-            self.windRunwayOffsetLabel.text = runwayWindModel.windRunwayOffset.description
+            self.windRunwayOffsetLabel.text = runwayWindModel.windRunwayOffset.descriptionWithUnit
             self.headWindComponentLabel.isHidden = false
             self.crossWindComponentLabel.isHidden = false
             self.windRunwayOffsetLabel.isHidden = false
@@ -86,7 +86,14 @@ class ViewController: UIViewController {
     }
         
     func clearAnalysisFromView() {
-        
+        self.displayWindLabel = false
+        self.displayWindSpeed = false
+        self.displayWindComponent = false
+        self.headingIndicatorView.displayWind = .hidden
+        self.headingIndicatorView.displayCrossWind = .hidden;
+        self.displayHideButton.setTitle("Display", for: .normal)
+        self.syncModelToView()
+        self.view.setNeedsDisplay()
     }
     
     //MARK: - View Controller
@@ -195,38 +202,46 @@ class ViewController: UIViewController {
     
     @IBAction func handleRotation(_ gesture: UIRotationGestureRecognizer) {
     }
-    
-    
+        
     @IBAction func windCheckButton(_ sender: Any) {
         self.syncViewToModel()
-        self.runwayWindModel.randomizeWind()
-        self.clearAnalysisFromView()
                 
-        self.runwayWindModel.speak() {
-            self.startUpdateSequence()
+        self.runwayWindModel.speak(which: .windcheck) {
         }
     }
     
     func startUpdateSequence() {
         
     }
+    
     @IBAction func displayHideButton(_ sender: Any) {
         if displayWindSpeed {
             self.displayWindSpeed = false
             self.displayWindComponent = false
             self.displayWindLabel = false
-            self.displayHideButton.titleLabel?.text = "Display"
+            self.displayHideButton.setTitle("Display", for: .normal)
+            self.headingIndicatorView.displayWind = .hidden
+            self.headingIndicatorView.displayCrossWind = .hidden;
+
         }else{
             self.displayWindSpeed = true
             self.displayWindComponent = true
             self.displayWindLabel = true
-            self.displayHideButton.titleLabel?.text = "Hide"
+            self.displayHideButton.setTitle("Hide", for: .normal)
+            self.headingIndicatorView.displayWind = .wind
+            self.headingIndicatorView.displayCrossWind = .speed
         }
         self.syncModelToView()
         self.view.setNeedsDisplay()
     }
     
     @IBAction func practiceButton(_ sender: Any) {
+        self.runwayWindModel.randomizeWind()
+        self.clearAnalysisFromView()
+        self.runwayWindModel.speak() {
+            self.startUpdateSequence()
+        }
+
     }
     
 }
