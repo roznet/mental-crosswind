@@ -219,7 +219,6 @@ import AVFoundation
 
 extension RunwayWindModel : AVSpeechSynthesizerDelegate {
     @objc func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        print( "Called" )
         self.completion()
     }
 }
