@@ -305,13 +305,15 @@ class HeadingIndicatorView: UIView {
     
     func rotateWind(degree : CGFloat){
         if displayWind.enabled {
-            self.model.windHeading.rotate(degree: Int(degree))
+            //self.model.windHeading.rotate(degree: Int(degree))
+            self.model.rotateWind(degree: Int(degree))
         }
     }
     
     func increaseWindSpeed(percent : CGFloat){
         // for now just
-        self.model.windSpeed.increase(speed: Int(percent))
+        self.model.increaseWind(speed: Int(percent))
+        //self.model.windSpeed.increase(speed: Int(percent))
     }
     
     func radius(point : CGPoint) -> CGFloat {

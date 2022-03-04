@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var runwayTextField: UITextField!
     @IBOutlet weak var headingIndicatorView: HeadingIndicatorView!
     @IBOutlet weak var displayHideButton: UIButton!
     
@@ -23,6 +22,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var headWindDirectionImage: UIImageView!
     @IBOutlet weak var crossWindDirectionImage: UIImageView!
 
+    @IBOutlet weak var windSourceLabel: UILabel!
+    
     var displayWindLabel : Bool = true
     var displayWindSpeed : Bool = true
     var displayWindComponent : Bool = true
@@ -34,14 +35,22 @@ class ViewController: UIViewController {
     //MARK: - Synchronize
 
     func syncModelToView() {
-        self.runwayTextField.text = self.runwayWindModel.runwayHeading.runwayDescription
         self.headingIndicatorView.model = self.runwayWindModel
+        
+        if let windSource = self.runwayWindModel.windSource {
+            self.windSourceLabel.text = windSource
+            self.windSourceLabel.isEnabled = true
+        }else{
+            self.windSourceLabel.isEnabled = false
+        }
         
         if displayWindLabel {
             self.windLabel.text = runwayWindModel.windDisplay
             self.windLabel.isHidden = false
+            self.windSourceLabel.isHidden = false
         }else{
             self.windLabel.isHidden = true
+            self.windSourceLabel.isHidden = true
         }
         if displayWindSpeed {
             self.crossWindSpeedLabel.text = runwayWindModel.crossWindSpeed.descriptionWithUnit
@@ -79,9 +88,6 @@ class ViewController: UIViewController {
     }
 
     func syncViewToModel() {
-        if let runway  = self.runwayTextField.text {
-            self.runwayWindModel.runwayHeading.runwayDescription = runway
-        }
         
     }
         
@@ -96,6 +102,20 @@ class ViewController: UIViewController {
         self.view.setNeedsDisplay()
     }
     
+    func refreshWindFromMetar(){
+        if let icao = UserDefaults.standard.string(forKey: "default-airport-icao") {
+            Metar.metar(icao: icao){ metar,icao in
+                if let metar = metar {
+                    self.runwayWindModel.setupFromMetar(metar: metar, icao: icao)
+                    DispatchQueue.main.async {
+                        self.syncModelToView()
+                    }
+                    
+                }
+            }
+        }
+    }
+    
     //MARK: - View Controller
     
     override func viewDidLoad() {
@@ -108,18 +128,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.syncModelToView()
-        if let icao = UserDefaults.standard.string(forKey: "default-airport-icao") {
-            Metar.metar(icao: icao){ metar in
-                if let metar = metar {
-                    self.runwayWindModel.windHeading = Heading(roundedHeading: metar.wind_direction.value)
-                    self.runwayWindModel.windSpeed = Speed(roundedSpeed: metar.wind_speed.value)
-                    DispatchQueue.main.async {
-                        self.syncModelToView()
-                    }
-                    
-                }
-            }
-        }
+        self.refreshWindFromMetar()
     }
 
     
@@ -203,6 +212,13 @@ class ViewController: UIViewController {
     @IBAction func handleRotation(_ gesture: UIRotationGestureRecognizer) {
     }
         
+    //MARK: - Buttons
+    
+    
+    @IBAction func refreshWindButton(_ sender: Any) {
+        self.refreshWindFromMetar()
+    }
+    
     @IBAction func windCheckButton(_ sender: Any) {
         self.syncViewToModel()
                 

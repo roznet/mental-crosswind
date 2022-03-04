@@ -21,7 +21,7 @@ struct Metar : Decodable {
     var wind_direction : Value
     var wind_speed : Value
     
-    static func metar(icao : String, callback : @escaping (_ : Metar?) -> Void){
+    static func metar(icao : String, callback : @escaping (_ : Metar?, _ : String) -> Void){
         if let url = URL(string: "https://avwx.rest/api/metar/\(icao)"),
            let token = Secrets.shared["avwx"]{
             var request = URLRequest(url: url)
@@ -30,18 +30,18 @@ struct Metar : Decodable {
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     print( error)
-                    callback(nil)
+                    callback(nil,icao)
                     return
                 }
                 guard let httpResponse = response as? HTTPURLResponse,
                       (200...299).contains(httpResponse.statusCode) else {
-                          callback(nil)
+                          callback(nil,icao)
                           return
                       }
                 if let mimeType = httpResponse.mimeType, mimeType == "application/json",
                    let data = data {
                    let rv : Metar? = try? JSONDecoder().decode(Metar.self, from: data)
-                    callback(rv)
+                    callback(rv,icao)
                 }
             }
             task.resume()

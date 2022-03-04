@@ -18,6 +18,8 @@ import AVFoundation
     var windSpeed : Speed = Speed(roundedSpeed: 10 )
     var windGust : Speed? = nil
     
+    var windSource : String? = nil
+    
     init( runway : Heading, wind : Heading? = nil, speed : Speed? = nil, gust : Speed? = nil){
         self.runwayHeading = runway
         self.windHeading = wind ?? runway
@@ -202,15 +204,24 @@ import AVFoundation
     }
     
     //MARK: - change values
+    
+    func setupFromMetar(metar : Metar, icao : String) {
+        self.windSource = icao
+        self.windHeading = Heading(roundedHeading: metar.wind_direction.value)
+        self.windSpeed = Speed(roundedSpeed: metar.wind_speed.value)
+    }
+    
     func rotateHeading(degree : Int){
         self.runwayHeading.rotate(degree: degree)
     }
     
     func rotateWind(degree : Int){
+        self.windSource = nil
         self.windHeading.rotate(degree: degree)
     }
     
     func increaseWind(speed : Int, maximumSpeed : Int = 75){
+        self.windSource = nil
         self.windSpeed.increase(speed: speed)
         self.windSpeed.cap(at: maximumSpeed)
     }

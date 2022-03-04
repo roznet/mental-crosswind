@@ -13,6 +13,7 @@
 		421E8C0727CA738E00A9B264 /* Metar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E8C0627CA738E00A9B264 /* Metar.swift */; };
 		421E8C0927CA843700A9B264 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E8C0827CA843700A9B264 /* Secrets.swift */; };
 		421E8C0B27CA856C00A9B264 /* secrets.json in Resources */ = {isa = PBXBuildFile; fileRef = 421E8C0A27CA856C00A9B264 /* secrets.json */; };
+		423C847327D25DCC00E7AE84 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423C847227D25DCC00E7AE84 /* SettingsViewController.swift */; };
 		42875C8C27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8D27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8E27B9235000E47BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7D27B9234D00E47BB5 /* ContentView.swift */; };
@@ -72,6 +73,7 @@
 		421E8C0627CA738E00A9B264 /* Metar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Metar.swift; path = MentalCrosswind/Metar.swift; sourceTree = "<group>"; };
 		421E8C0827CA843700A9B264 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Secrets.swift; path = MentalCrosswind/Secrets.swift; sourceTree = "<group>"; };
 		421E8C0A27CA856C00A9B264 /* secrets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = secrets.json; path = MentalCrosswind/secrets.json; sourceTree = "<group>"; };
+		423C847227D25DCC00E7AE84 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		42875C7C27B9234D00E47BB5 /* xwindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xwindApp.swift; sourceTree = "<group>"; };
 		42875C7D27B9234D00E47BB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42875C7E27B9235000E47BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				4206AF9427BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift */,
 				42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */,
 				421E8BF827C2C87900A9B264 /* WindComponentsView.swift */,
+				423C847227D25DCC00E7AE84 /* SettingsViewController.swift */,
 				42B7C4A927B9A665007C59F8 /* ViewController.swift */,
 				42B7C4A527B9A665007C59F8 /* AppDelegate.swift */,
 				42B7C4A727B9A665007C59F8 /* SceneDelegate.swift */,
@@ -518,6 +521,7 @@
 				421E8BF927C2C87900A9B264 /* WindComponentsView.swift in Sources */,
 				42B7C4AA27B9A665007C59F8 /* ViewController.swift in Sources */,
 				42B7C4A627B9A665007C59F8 /* AppDelegate.swift in Sources */,
+				423C847327D25DCC00E7AE84 /* SettingsViewController.swift in Sources */,
 				42B7C4D527B9A67E007C59F8 /* Speed.swift in Sources */,
 				42B7C4A827B9A665007C59F8 /* SceneDelegate.swift in Sources */,
 			);
