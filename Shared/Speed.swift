@@ -8,7 +8,7 @@
 import Foundation
 
 struct Speed {
-    private var roundedSpeed : Int
+    var roundedSpeed : Int
     
     var speed : Double {
         get { Double(self.roundedSpeed) }

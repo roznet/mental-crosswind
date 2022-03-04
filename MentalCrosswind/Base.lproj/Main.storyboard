@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Runway Wind View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MentalCrosswind" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RunwayWindViewController" customModule="MentalCrosswind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,19 +266,79 @@
                                     <action selector="doneButton:" destination="48t-C8-Sn9" eventType="touchUpInside" id="D9u-e9-O5A"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="24" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AUr-9q-8Vf">
+                                <rect key="frame" x="159" y="77" width="69" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Runway" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSB-By-zM5">
+                                <rect key="frame" x="20" y="83" width="119" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Dsr-86-0Ew">
+                                <rect key="frame" x="20" y="211" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Custom"/>
+                                    <segment title="Nearest"/>
+                                    <segment title="None"/>
+                                </segments>
+                                <connections>
+                                    <action selector="updateSegmentChanged:" destination="48t-C8-Sn9" eventType="valueChanged" id="agj-N1-Ll5"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update with METAR From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FI3-9p-zXZ">
+                                <rect key="frame" x="20" y="180" width="195" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Airport" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9C5-hg-9Z1">
+                                <rect key="frame" x="20" y="257" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EGTF" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="van-p3-s4a">
+                                <rect key="frame" x="163" y="250" width="97" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Yvr-nw-uUe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="AUr-9q-8Vf" firstAttribute="leading" secondItem="YSB-By-zM5" secondAttribute="trailing" constant="20" id="08z-br-Nko"/>
+                            <constraint firstItem="FI3-9p-zXZ" firstAttribute="leading" secondItem="Dsr-86-0Ew" secondAttribute="leading" id="37r-Dc-oMb"/>
+                            <constraint firstItem="Dsr-86-0Ew" firstAttribute="top" secondItem="FI3-9p-zXZ" secondAttribute="bottom" constant="8" symbolic="YES" id="4wI-9C-xvs"/>
+                            <constraint firstItem="FI3-9p-zXZ" firstAttribute="top" secondItem="YSB-By-zM5" secondAttribute="bottom" constant="76" id="65i-Yk-sug"/>
+                            <constraint firstItem="9C5-hg-9Z1" firstAttribute="top" secondItem="Dsr-86-0Ew" secondAttribute="bottom" constant="15" id="ADR-zv-uc3"/>
                             <constraint firstItem="Yvr-nw-uUe" firstAttribute="trailing" secondItem="fc8-AX-Yjx" secondAttribute="trailing" constant="10" id="IPq-pC-Saz"/>
+                            <constraint firstItem="Dsr-86-0Ew" firstAttribute="top" secondItem="FI3-9p-zXZ" secondAttribute="bottom" constant="10" id="J8h-fS-Mgy"/>
+                            <constraint firstItem="FI3-9p-zXZ" firstAttribute="leading" secondItem="YSB-By-zM5" secondAttribute="leading" id="KqT-h9-twi"/>
+                            <constraint firstItem="van-p3-s4a" firstAttribute="firstBaseline" secondItem="9C5-hg-9Z1" secondAttribute="firstBaseline" id="Rkx-Ne-d8P"/>
+                            <constraint firstItem="AUr-9q-8Vf" firstAttribute="firstBaseline" secondItem="YSB-By-zM5" secondAttribute="firstBaseline" id="Ubf-rl-AZg"/>
+                            <constraint firstItem="van-p3-s4a" firstAttribute="leading" secondItem="9C5-hg-9Z1" secondAttribute="trailing" constant="26" id="V9G-QV-8Oa"/>
+                            <constraint firstItem="9C5-hg-9Z1" firstAttribute="leading" secondItem="Dsr-86-0Ew" secondAttribute="leading" id="Vjz-A9-1gY"/>
+                            <constraint firstItem="Yvr-nw-uUe" firstAttribute="trailing" secondItem="Dsr-86-0Ew" secondAttribute="trailing" constant="20" id="X15-df-CZX"/>
                             <constraint firstItem="fc8-AX-Yjx" firstAttribute="top" secondItem="Yvr-nw-uUe" secondAttribute="top" constant="10" id="bzH-Ep-D3I"/>
+                            <constraint firstItem="YSB-By-zM5" firstAttribute="top" secondItem="fc8-AX-Yjx" secondAttribute="bottom" constant="42" id="cKX-cb-Twp"/>
+                            <constraint firstItem="Dsr-86-0Ew" firstAttribute="leading" secondItem="Yvr-nw-uUe" secondAttribute="leading" constant="20" id="mJA-0L-k4W"/>
+                            <constraint firstItem="YSB-By-zM5" firstAttribute="leading" secondItem="Yvr-nw-uUe" secondAttribute="leading" constant="20" id="qgz-ls-0Df"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tUU-AJ-nWA"/>
+                    <connections>
+                        <outlet property="airportLabel" destination="9C5-hg-9Z1" id="aJs-2r-7OC"/>
+                        <outlet property="defaultRunwayEntryText" destination="AUr-9q-8Vf" id="Nin-qU-7RF"/>
+                        <outlet property="icaoTextField" destination="van-p3-s4a" id="LbU-oT-cW0"/>
+                        <outlet property="updateSegmentedControl" destination="Dsr-86-0Ew" id="668-U6-Std"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LV4-EN-Zdl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="90"/>
+            <point key="canvasLocation" x="1092.753623188406" y="89.732142857142847"/>
         </scene>
     </scenes>
     <resources>

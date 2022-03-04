@@ -205,6 +205,10 @@ import AVFoundation
     
     //MARK: - change values
     
+    func opposingRunway(){
+        self.runwayHeading = self.runwayHeading.opposing
+    }
+    
     func setupFromMetar(metar : Metar, icao : String) {
         self.windSource = icao
         self.windHeading = Heading(roundedHeading: metar.wind_direction.value)
@@ -226,6 +230,17 @@ import AVFoundation
         self.windSpeed.cap(at: maximumSpeed)
     }
     
+    //MARK:- settings
+    
+    func updateFromSettings(){
+        self.windSpeed = Settings.shared.speed(key: .wind_speed)
+        self.windHeading = Settings.shared.heading(key: .wind_direction)
+    }
+    
+    func saveToSettings(){
+        Settings.shared.setSpeed(key: .wind_speed, speed: self.windSpeed)
+        Settings.shared.setHeading(key: .wind_direction, heading: self.windHeading)
+    }
 }
 
 extension RunwayWindModel : AVSpeechSynthesizerDelegate {

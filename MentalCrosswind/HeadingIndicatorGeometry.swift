@@ -36,6 +36,9 @@ struct HeadingIndicatorGeometry {
     var windMinRadius : CGFloat { return baseRadius - regularLength - textMargin }
     var windMaxRadius : CGFloat { return baseRadius * 0.5 }
     
+    var runwayTargetWidth : CGFloat { return baseRadius * 0.25 }
+    var runwayTargetLength : CGFloat { return baseRadius * 0.4 }
+    
     func windStartRadius(speed : CGFloat ) -> CGFloat {
         let minRadiusSpeed : CGFloat = 0.0
         let maxRadiusSpeed : CGFloat = 50.0

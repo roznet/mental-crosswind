@@ -8,7 +8,11 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    @IBOutlet weak var defaultRunwayEntryText: UITextField!
+    @IBOutlet weak var updateSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var icaoTextField: UITextField!
+    @IBOutlet weak var airportLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,15 +23,24 @@ class SettingsViewController: UIViewController {
     @IBAction func doneButton(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func updateSegmentChanged(_ sender: UISegmentedControl) {
+        
+        
+        if sender.selectedSegmentIndex == 0 {
+            self.airportLabel.isEnabled = true
+            self.icaoTextField.isEnabled = true;
+        }else{
+            self.airportLabel.isEnabled = false
+            self.icaoTextField.isEnabled = false;
+        }
+        
+        
     }
-    */
+    
 
+    func syncSettingsToView(){
+        
+    }
+    
 }

@@ -93,8 +93,8 @@ class HeadingIndicatorView: UIView {
     func drawRunway(_ rect : CGRect){
         let center = geometry.center
 
-        let runwayTargetWidth = geometry.baseRadius * 0.25
-        let runwayTargetLength = geometry.baseRadius * 0.4
+        let runwayTargetWidth = geometry.runwayTargetWidth
+        let runwayTargetLength = geometry.runwayTargetLength
 
         // Fit center line + 3 stripe in each side:  stripes or 16 units (stripe + space) + 1 for left
         let stripeEachSideCount : Int = 3

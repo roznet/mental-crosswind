@@ -58,19 +58,24 @@ struct Heading {
     }
     
     var description : String {
-        get { let x = Int(round(heading)); return "\(x)" }
+        get { let x = Int(round(heading)); return x == 0 ? "360" : "\(x)" }
         set { if let x = Int(newValue) { self.roundedHeading = x } }
     }
     
     var runwayDescription : String {
-        get { let x = Int(round(heading/10)); return "\(x)" }
+        get { let x = Int(round(heading/10)); return x == 0 ? "36" : "\(x)" }
         set { if let x = Int(newValue) { self.roundedHeading = (x % 360) * 10 } }
+    }
+    
+    var opposing : Heading {
+        get { return Heading(roundedHeading: self.roundedHeading + 180) }
+        set { self.roundedHeading = (newValue.roundedHeading + 180) % 360 }
     }
     
     //MARK: - Init
     
     init(roundedHeading: Int){
-        self.roundedHeading = roundedHeading
+        self.roundedHeading = (roundedHeading % 360)
     }
     
     init(runwayDescription : String){

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RunwayWindViewController: UIViewController {
     @IBOutlet weak var headingIndicatorView: HeadingIndicatorView!
     @IBOutlet weak var displayHideButton: UIButton!
     
@@ -127,10 +127,19 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.runwayWindModel.updateFromSettings()
         self.syncModelToView()
         self.refreshWindFromMetar()
+        NotificationCenter.default.addObserver(forName: Notification.BackgroundNotificationName, object: nil, queue: nil) { _ in
+            self.runwayWindModel.saveToSettings()
+        }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.runwayWindModel.saveToSettings()
+        NotificationCenter.default.removeObserver(self)
+    }
     
         
     //MARK: - Actions
@@ -202,14 +211,22 @@ class ViewController: UIViewController {
 
         let center = self.headingIndicatorView.geometry.center
         let angleTo = self.headingIndicatorView.heading(point: location)
+        let distanceTo = center.distance(to: location)
         
         let coord = CGPoint(x: location.x - center.x, y: location.y - center.y)
         print( "Loc: \(location) coord: \(coord) angle: \(angleTo) to: \(location.distance(to: center)) " )
 
+        if distanceTo < self.headingIndicatorView.geometry.runwayTargetLength {
+            self.runwayWindModel.opposingRunway()
+        }else{
+            self.runwayWindModel.runwayHeading = Heading(heading: angleTo)
+        }
+        self.syncModelToView()
         
     }
     
     @IBAction func handleRotation(_ gesture: UIRotationGestureRecognizer) {
+        
     }
         
     //MARK: - Buttons
