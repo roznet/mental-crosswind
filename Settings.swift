@@ -32,7 +32,9 @@ class Settings {
         UserDefaults.standard.register(defaults: [
             Key.airport_icao.rawValue  : Self.defaultIcao,
             Key.update_method.rawValue : Self.defaultUpdateMethod.rawValue,
-            Key.runway.rawValue        : Self.defaultRunway
+            Key.runway.rawValue        : Self.defaultRunway,
+            Key.wind_speed.rawValue    : 10,
+            Key.wind_direction.rawValue : (Self.defaultRunway * 10 + 10) % 360
         ])
     }
     

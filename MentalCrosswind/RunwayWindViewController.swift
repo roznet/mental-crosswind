@@ -41,6 +41,7 @@ class RunwayWindViewController: UIViewController {
             self.windSourceLabel.text = windSource
             self.windSourceLabel.isEnabled = true
         }else{
+            self.windSourceLabel.text = Settings.shared.airportIcao
             self.windSourceLabel.isEnabled = false
         }
         
@@ -85,6 +86,8 @@ class RunwayWindViewController: UIViewController {
             self.headWindDirectionImage.isHidden = true
         }
         self.headingIndicatorView.setNeedsDisplay()
+        
+        
     }
 
     func syncViewToModel() {
@@ -103,14 +106,14 @@ class RunwayWindViewController: UIViewController {
     }
     
     func refreshWindFromMetar(){
-        if let icao = UserDefaults.standard.string(forKey: "default-airport-icao") {
+        if Settings.shared.updateMethod == .custom {
+            let icao = Settings.shared.airportIcao
             Metar.metar(icao: icao){ metar,icao in
                 if let metar = metar {
                     self.runwayWindModel.setupFromMetar(metar: metar, icao: icao)
                     DispatchQueue.main.async {
                         self.syncModelToView()
                     }
-                    
                 }
             }
         }
@@ -213,8 +216,8 @@ class RunwayWindViewController: UIViewController {
         let angleTo = self.headingIndicatorView.heading(point: location)
         let distanceTo = center.distance(to: location)
         
-        let coord = CGPoint(x: location.x - center.x, y: location.y - center.y)
-        print( "Loc: \(location) coord: \(coord) angle: \(angleTo) to: \(location.distance(to: center)) " )
+        //let coord = CGPoint(x: location.x - center.x, y: location.y - center.y)
+        //print( "Loc: \(location) coord: \(coord) angle: \(angleTo) to: \(location.distance(to: center)) " )
 
         if distanceTo < self.headingIndicatorView.geometry.runwayTargetLength {
             self.runwayWindModel.opposingRunway()
