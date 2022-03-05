@@ -61,7 +61,7 @@ class Settings {
             }
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: Key.update_method.rawValue)
+            UserDefaults.standard.set(newValue.rawValue, forKey: Key.update_method.rawValue)
         }
     }
     
