@@ -109,31 +109,32 @@ class RunwayWindViewController: UIViewController {
         self.view.setNeedsDisplay()
     }
     
+    func refreshModel(airport : Airport){
+        Metar.metar(icao: airport.icao){ metar,icao in
+            if let metar = metar {
+                self.runwayWindModel.setupFrom(metar: metar, icao: icao)
+                self.runwayWindModel.updateRunwayHeading(heading: airport.bestRunway(wind: self.runwayWindModel.windHeading))
+                DispatchQueue.main.async {
+                    self.syncModelToView()
+                }
+            }
+        }
+    }
+    
     func refreshWindFromMetar(){
         if Settings.shared.updateMethod == .custom {
             let icao = Settings.shared.airportIcao
-            Metar.metar(icao: icao){ metar,icao in
-                if let metar = metar {
-                    self.runwayWindModel.setupFrom(metar: metar, icao: icao)
-                    DispatchQueue.main.async {
-                        self.syncModelToView()
-                    }
+            Airport.at(icao: icao){ airport in
+                if let airport = airport {
+                    self.refreshModel(airport: airport)
                 }
             }
         }else if Settings.shared.updateMethod == .nearest {
             self.startTracking() { coord in
                 if let coord = coord {
                     Airport.near(coord: coord){ airports in
-                        print( airports )
                         if let first = airports.first {
-                            Metar.metar(icao: first.icao){ metar,icao in
-                                if let metar = metar {
-                                    self.runwayWindModel.setupFrom(metar: metar, airport: first)
-                                    DispatchQueue.main.async {
-                                        self.syncModelToView()
-                                    }
-                                }
-                            }
+                            self.refreshModel(airport: first)
                         }
                     }
                 }

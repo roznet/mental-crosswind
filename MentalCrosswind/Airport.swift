@@ -8,8 +8,11 @@
 import Foundation
 import CoreLocation
 import Geomagnetism
+import OSLog
 
 struct Airport : Decodable {
+    static let logger = Logger(subsystem: "net.ro-z.mental-crosswind", category: "Airport")
+    
     enum Category: String, Decodable {
             case city, name, country, elevation_ft, icao, latitude, longitude, reporting
         }
@@ -78,9 +81,42 @@ struct Airport : Decodable {
                     best = runway
                 } 
             }
-            return best.bestTrueHeading(for: wind)
+            return self.magneticHeading(from: best.bestTrueHeading(for: wind))
         }
         return wind
+    }
+    
+    static func at(icao: String, callback : @escaping (_ : Airport?) -> Void ) {
+        if let url = URL(string: "https://avwx.rest/api/station/\(icao)"),
+           let token = Secrets.shared["avwx"]{
+            var request = URLRequest(url: url)
+            
+            request.setValue("BEARER \(token)", forHTTPHeaderField: "Authorization")
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    Self.logger.error("failed with \(error.localizedDescription, privacy: .public)")
+                    callback(nil)
+                    return
+                }
+                guard let httpResponse = response as? HTTPURLResponse,
+                      (200...299).contains(httpResponse.statusCode) else {
+                          callback(nil)
+                          return
+                      }
+                if let mimeType = httpResponse.mimeType, mimeType == "application/json",
+                   let data = data {
+                    do {
+                        let rv : Airport = try JSONDecoder().decode(Airport.self, from: data)
+                        callback(rv)
+                    } catch {
+                        Self.logger.error("failed with \(error.localizedDescription, privacy: .public)")
+                        callback(nil)
+                    }
+                }
+            }
+            task.resume()
+        }
     }
     
     static func near(coord : CLLocationCoordinate2D, count : Int = 5, callback : @escaping (_ : [Airport]) -> Void) {
@@ -89,7 +125,6 @@ struct Airport : Decodable {
             var request = URLRequest(url: url)
             
             request.setValue("BEARER \(token)", forHTTPHeaderField: "Authorization")
-            print( url )
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     print( error)

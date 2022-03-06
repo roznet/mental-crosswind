@@ -214,7 +214,7 @@ import AVFoundation
             self.windSource = icao
         }
         if let airport = airport {
-            self.windSource = icao
+            self.windSource = airport.icao
         }
         self.windHeading = Heading(roundedHeading: metar.wind_direction.value)
         self.windSpeed = Speed(roundedSpeed: metar.wind_speed.value)
@@ -222,6 +222,10 @@ import AVFoundation
     
     func rotateHeading(degree : Int){
         self.runwayHeading.rotate(degree: degree)
+    }
+    
+    func updateRunwayHeading(heading : Heading){
+        self.runwayHeading = heading
     }
     
     func rotateWind(degree : Int){
