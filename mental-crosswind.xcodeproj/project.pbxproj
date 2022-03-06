@@ -128,7 +128,6 @@
 		42B7C4C627B9A667007C59F8 /* MentalCrosswindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalCrosswindUITests.swift; sourceTree = "<group>"; };
 		42B7C4C827B9A667007C59F8 /* MentalCrosswindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalCrosswindUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingIndicatorView.swift; sourceTree = "<group>"; };
-		42D90E6E27D525440034DFAC /* Geomagnetism-Swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Geomagnetism-Swift"; path = "../Geomagnetism-Swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +210,6 @@
 		42875C7627B9234D00E47BB5 = {
 			isa = PBXGroup;
 			children = (
-				42D90E6E27D525440034DFAC /* Geomagnetism-Swift */,
 				421E8C0527CA735100A9B264 /* API */,
 				42875C9D27B96F7B00E47BB5 /* Model */,
 				42875C7B27B9234D00E47BB5 /* Shared */,
