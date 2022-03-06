@@ -90,22 +90,46 @@
                                                             <constraint firstItem="WTh-H3-PB4" firstAttribute="centerX" secondItem="XtE-Gx-7H4" secondAttribute="centerX" id="zac-MR-XHe"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="10 kts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gw-te-a2a">
-                                                        <rect key="frame" x="83" y="50" width="45" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="10 kts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6T-vs-yzu">
-                                                        <rect key="frame" x="83" y="100" width="45" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6X-VD-HFR">
+                                                        <rect key="frame" x="0.0" y="50" width="128" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="10 kts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gw-te-a2a">
+                                                                <rect key="frame" x="83" y="15" width="45" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="2gw-te-a2a" firstAttribute="centerY" secondItem="i6X-VD-HFR" secondAttribute="centerY" id="Alw-df-dMJ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="2gw-te-a2a" secondAttribute="trailing" id="JGD-Zc-RWF"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yi9-WU-sp9">
+                                                        <rect key="frame" x="0.0" y="100" width="128" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="10 kts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6T-vs-yzu">
+                                                                <rect key="frame" x="83" y="15" width="45" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="N6T-vs-yzu" secondAttribute="trailing" id="BAx-Lg-kyW"/>
+                                                            <constraint firstItem="N6T-vs-yzu" firstAttribute="centerY" secondItem="yi9-WU-sp9" secondAttribute="centerY" id="gHk-QI-6Ww"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="i6X-VD-HFR" secondAttribute="trailing" id="20j-4a-Bgq"/>
+                                                    <constraint firstAttribute="trailing" secondItem="yi9-WU-sp9" secondAttribute="trailing" id="G5M-Zv-ghv"/>
                                                     <constraint firstAttribute="trailing" secondItem="XtE-Gx-7H4" secondAttribute="trailing" id="M2e-IB-08n"/>
+                                                    <constraint firstItem="i6X-VD-HFR" firstAttribute="leading" secondItem="g15-pD-6AK" secondAttribute="leading" id="cCn-WR-s8n"/>
                                                     <constraint firstItem="XtE-Gx-7H4" firstAttribute="leading" secondItem="g15-pD-6AK" secondAttribute="leading" id="uKW-zl-ZJt"/>
+                                                    <constraint firstItem="yi9-WU-sp9" firstAttribute="leading" secondItem="g15-pD-6AK" secondAttribute="leading" id="xNG-gv-NZ6"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VeD-6F-CgQ">
