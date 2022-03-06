@@ -15,6 +15,18 @@
 		421E8C0B27CA856C00A9B264 /* secrets.json in Resources */ = {isa = PBXBuildFile; fileRef = 421E8C0A27CA856C00A9B264 /* secrets.json */; };
 		423C847327D25DCC00E7AE84 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423C847227D25DCC00E7AE84 /* SettingsViewController.swift */; };
 		423C847527D2891100E7AE84 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423C847427D2891100E7AE84 /* Settings.swift */; };
+		427E328127D43C9F000A914E /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427E328027D43C9F000A914E /* Airport.swift */; };
+		427E328827D43CBA000A914E /* station-egtf.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E328427D43CBA000A914E /* station-egtf.json */; };
+		427E328927D43CBA000A914E /* station-egll.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E328527D43CBA000A914E /* station-egll.json */; };
+		427E328A27D43CBA000A914E /* station-eglf.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E328627D43CBA000A914E /* station-eglf.json */; };
+		427E328F27D43D68000A914E /* metar-eglf.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E328B27D43D67000A914E /* metar-eglf.json */; };
+		427E329027D43D68000A914E /* near-london.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E328C27D43D67000A914E /* near-london.json */; };
+		427E329127D43D68000A914E /* near-paloalto.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E328D27D43D68000A914E /* near-paloalto.json */; };
+		427E329227D43D68000A914E /* metar-egll.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E328E27D43D68000A914E /* metar-egll.json */; };
+		427E329727D44DE9000A914E /* station-kpao.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E329327D44DE8000A914E /* station-kpao.json */; };
+		427E329827D44DE9000A914E /* metar-kpao.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E329427D44DE8000A914E /* metar-kpao.json */; };
+		427E329927D44DE9000A914E /* station-ksfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E329527D44DE9000A914E /* station-ksfo.json */; };
+		427E329A27D44DE9000A914E /* metar-ksfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E329627D44DE9000A914E /* metar-ksfo.json */; };
 		42875C8C27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8D27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
 		42875C8E27B9235000E47BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7D27B9234D00E47BB5 /* ContentView.swift */; };
@@ -41,6 +53,8 @@
 		42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9E27B96F9400E47BB5 /* Heading.swift */; };
 		42B7C4D527B9A67E007C59F8 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
 		42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */; };
+		42D90E6A27D51DA00034DFAC /* Geomagnetism in Frameworks */ = {isa = PBXBuildFile; productRef = 42D90E6927D51DA00034DFAC /* Geomagnetism */; };
+		42D90E6D27D523E20034DFAC /* Geomagnetism in Frameworks */ = {isa = PBXBuildFile; productRef = 42D90E6C27D523E20034DFAC /* Geomagnetism */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +90,18 @@
 		421E8C0A27CA856C00A9B264 /* secrets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = secrets.json; path = MentalCrosswind/secrets.json; sourceTree = "<group>"; };
 		423C847227D25DCC00E7AE84 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		423C847427D2891100E7AE84 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		427E328027D43C9F000A914E /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.swift; path = MentalCrosswind/Airport.swift; sourceTree = "<group>"; };
+		427E328427D43CBA000A914E /* station-egtf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "station-egtf.json"; sourceTree = "<group>"; };
+		427E328527D43CBA000A914E /* station-egll.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "station-egll.json"; sourceTree = "<group>"; };
+		427E328627D43CBA000A914E /* station-eglf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "station-eglf.json"; sourceTree = "<group>"; };
+		427E328B27D43D67000A914E /* metar-eglf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "metar-eglf.json"; sourceTree = "<group>"; };
+		427E328C27D43D67000A914E /* near-london.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "near-london.json"; sourceTree = "<group>"; };
+		427E328D27D43D68000A914E /* near-paloalto.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "near-paloalto.json"; sourceTree = "<group>"; };
+		427E328E27D43D68000A914E /* metar-egll.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "metar-egll.json"; sourceTree = "<group>"; };
+		427E329327D44DE8000A914E /* station-kpao.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "station-kpao.json"; sourceTree = "<group>"; };
+		427E329427D44DE8000A914E /* metar-kpao.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "metar-kpao.json"; sourceTree = "<group>"; };
+		427E329527D44DE9000A914E /* station-ksfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "station-ksfo.json"; sourceTree = "<group>"; };
+		427E329627D44DE9000A914E /* metar-ksfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "metar-ksfo.json"; sourceTree = "<group>"; };
 		42875C7C27B9234D00E47BB5 /* xwindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xwindApp.swift; sourceTree = "<group>"; };
 		42875C7D27B9234D00E47BB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42875C7E27B9235000E47BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +128,7 @@
 		42B7C4C627B9A667007C59F8 /* MentalCrosswindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalCrosswindUITests.swift; sourceTree = "<group>"; };
 		42B7C4C827B9A667007C59F8 /* MentalCrosswindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalCrosswindUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingIndicatorView.swift; sourceTree = "<group>"; };
+		42D90E6E27D525440034DFAC /* Geomagnetism-Swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "Geomagnetism-Swift"; path = "../Geomagnetism-Swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D90E6A27D51DA00034DFAC /* Geomagnetism in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D90E6D27D523E20034DFAC /* Geomagnetism in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,16 +182,36 @@
 		421E8C0527CA735100A9B264 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				421E8C0A27CA856C00A9B264 /* secrets.json */,
+				427E328027D43C9F000A914E /* Airport.swift */,
 				421E8C0627CA738E00A9B264 /* Metar.swift */,
 				421E8C0827CA843700A9B264 /* Secrets.swift */,
+				421E8C0A27CA856C00A9B264 /* secrets.json */,
 			);
 			name = API;
 			sourceTree = "<group>";
 		};
+		427E328227D43CBA000A914E /* testAssets */ = {
+			isa = PBXGroup;
+			children = (
+				427E328B27D43D67000A914E /* metar-eglf.json */,
+				427E328E27D43D68000A914E /* metar-egll.json */,
+				427E329427D44DE8000A914E /* metar-kpao.json */,
+				427E329627D44DE9000A914E /* metar-ksfo.json */,
+				427E328C27D43D67000A914E /* near-london.json */,
+				427E328D27D43D68000A914E /* near-paloalto.json */,
+				427E328627D43CBA000A914E /* station-eglf.json */,
+				427E328527D43CBA000A914E /* station-egll.json */,
+				427E328427D43CBA000A914E /* station-egtf.json */,
+				427E329327D44DE8000A914E /* station-kpao.json */,
+				427E329527D44DE9000A914E /* station-ksfo.json */,
+			);
+			path = testAssets;
+			sourceTree = SOURCE_ROOT;
+		};
 		42875C7627B9234D00E47BB5 = {
 			isa = PBXGroup;
 			children = (
+				42D90E6E27D525440034DFAC /* Geomagnetism-Swift */,
 				421E8C0527CA735100A9B264 /* API */,
 				42875C9D27B96F7B00E47BB5 /* Model */,
 				42875C7B27B9234D00E47BB5 /* Shared */,
@@ -172,6 +221,7 @@
 				42B7C4BB27B9A667007C59F8 /* MentalCrosswindTests */,
 				42B7C4C527B9A667007C59F8 /* MentalCrosswindUITests */,
 				42875C8427B9235000E47BB5 /* Products */,
+				42D90E6B27D523E20034DFAC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,6 +298,7 @@
 		42B7C4BB27B9A667007C59F8 /* MentalCrosswindTests */ = {
 			isa = PBXGroup;
 			children = (
+				427E328227D43CBA000A914E /* testAssets */,
 				42B7C4BC27B9A667007C59F8 /* MentalCrosswindTests.swift */,
 			);
 			path = MentalCrosswindTests;
@@ -260,6 +311,13 @@
 				42B7C4C827B9A667007C59F8 /* MentalCrosswindUITestsLaunchTests.swift */,
 			);
 			path = MentalCrosswindUITests;
+			sourceTree = "<group>";
+		};
+		42D90E6B27D523E20034DFAC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +336,9 @@
 			dependencies = (
 			);
 			name = "mental-crosswind (iOS)";
+			packageProductDependencies = (
+				42D90E6927D51DA00034DFAC /* Geomagnetism */,
+			);
 			productName = "xwind (iOS)";
 			productReference = 42875C8327B9235000E47BB5 /* MentalCrosswind.app */;
 			productType = "com.apple.product-type.application";
@@ -330,6 +391,9 @@
 			dependencies = (
 			);
 			name = MentalCrosswind;
+			packageProductDependencies = (
+				42D90E6C27D523E20034DFAC /* Geomagnetism */,
+			);
 			productName = MentalCrosswind;
 			productReference = 42B7C4A327B9A665007C59F8 /* MentalCrosswind.app */;
 			productType = "com.apple.product-type.application";
@@ -412,6 +476,9 @@
 				Base,
 			);
 			mainGroup = 42875C7627B9234D00E47BB5;
+			packageReferences = (
+				42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */,
+			);
 			productRefGroup = 42875C8427B9235000E47BB5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -465,6 +532,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				427E329927D44DE9000A914E /* station-ksfo.json in Resources */,
+				427E329227D43D68000A914E /* metar-egll.json in Resources */,
+				427E328F27D43D68000A914E /* metar-eglf.json in Resources */,
+				427E328827D43CBA000A914E /* station-egtf.json in Resources */,
+				427E329027D43D68000A914E /* near-london.json in Resources */,
+				427E329727D44DE9000A914E /* station-kpao.json in Resources */,
+				427E329127D43D68000A914E /* near-paloalto.json in Resources */,
+				427E329827D44DE9000A914E /* metar-kpao.json in Resources */,
+				427E329A27D44DE9000A914E /* metar-ksfo.json in Resources */,
+				427E328927D43CBA000A914E /* station-egll.json in Resources */,
+				427E328A27D43CBA000A914E /* station-eglf.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +592,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				427E328127D43C9F000A914E /* Airport.swift in Sources */,
 				42910E4627BA3E4500319492 /* RunwayWindModel.swift in Sources */,
 				421E8C0927CA843700A9B264 /* Secrets.swift in Sources */,
 				42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */,
@@ -868,6 +947,7 @@
 				DEVELOPMENT_TEAM = M7QSSF3624;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentalCrosswind/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use location to determine closest airport";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -899,6 +979,7 @@
 				DEVELOPMENT_TEAM = M7QSSF3624;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MentalCrosswind/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Use location to determine closest airport";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1071,6 +1152,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:roznet/Geomagnetism-Swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		42D90E6927D51DA00034DFAC /* Geomagnetism */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */;
+			productName = Geomagnetism;
+		};
+		42D90E6C27D523E20034DFAC /* Geomagnetism */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */;
+			productName = Geomagnetism;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 42875C7727B9234D00E47BB5 /* Project object */;
 }

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Geomagnetism",
+        "repositoryURL": "git@github.com:roznet/Geomagnetism-Swift.git",
+        "state": {
+          "branch": "master",
+          "revision": "6b67f639757c5785bbdf3fc4e721f3e80f329f0f",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

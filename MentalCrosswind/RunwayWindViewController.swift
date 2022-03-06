@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class RunwayWindViewController: UIViewController {
     @IBOutlet weak var headingIndicatorView: HeadingIndicatorView!
@@ -31,6 +32,9 @@ class RunwayWindViewController: UIViewController {
     var displaySomething : Bool { return displayWindLabel || displayWindSpeed || displayWindComponent }
     
     var runwayWindModel : RunwayWindModel = RunwayWindModel(runway: Heading(roundedHeading: 240) )
+    
+    private let locationManager = CLLocationManager()
+    private var locationCallback : ((_ : CLLocationCoordinate2D?) -> Void)? = nil
     
     //MARK: - Synchronize
 
@@ -110,9 +114,27 @@ class RunwayWindViewController: UIViewController {
             let icao = Settings.shared.airportIcao
             Metar.metar(icao: icao){ metar,icao in
                 if let metar = metar {
-                    self.runwayWindModel.setupFromMetar(metar: metar, icao: icao)
+                    self.runwayWindModel.setupFrom(metar: metar, icao: icao)
                     DispatchQueue.main.async {
                         self.syncModelToView()
+                    }
+                }
+            }
+        }else if Settings.shared.updateMethod == .nearest {
+            self.startTracking() { coord in
+                if let coord = coord {
+                    Airport.near(coord: coord){ airports in
+                        print( airports )
+                        if let first = airports.first {
+                            Metar.metar(icao: first.icao){ metar,icao in
+                                if let metar = metar {
+                                    self.runwayWindModel.setupFrom(metar: metar, airport: first)
+                                    DispatchQueue.main.async {
+                                        self.syncModelToView()
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -279,6 +301,46 @@ class RunwayWindViewController: UIViewController {
         }
 
     }
-    
 }
 
+
+extension RunwayWindViewController : CLLocationManagerDelegate {
+    func startTracking(callback : @escaping (_ : CLLocationCoordinate2D?) -> Void) {
+        locationManager.delegate = self
+        self.locationCallback = callback
+        locationManager.desiredAccuracy = kCLLocationAccuracyReduced;
+        locationManager.pausesLocationUpdatesAutomatically = false
+        self.locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+    }
+        
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let first = locations.first else { return }
+        if let cb = self.locationCallback {
+            cb(first.coordinate)
+            self.locationCallback = nil
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("failed to locate \(error)")
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedAlways:
+            print("Authorization always")
+        case .authorizedWhenInUse:
+            print("Authorization wheninused")
+        case .denied, .restricted:
+            print("Authorization changed denied/restricted")
+        case .notDetermined:
+            print("Authorization changed notDetermined")
+        default:
+            print("Authorization changed default")
+        }
+        
+    }
+
+    
+}

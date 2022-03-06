@@ -209,8 +209,13 @@ import AVFoundation
         self.runwayHeading = self.runwayHeading.opposing
     }
     
-    func setupFromMetar(metar : Metar, icao : String) {
-        self.windSource = icao
+    func setupFrom(metar : Metar, airport : Airport? = nil, icao : String? = nil) {
+        if let icao = icao {
+            self.windSource = icao
+        }
+        if let airport = airport {
+            self.windSource = icao
+        }
         self.windHeading = Heading(roundedHeading: metar.wind_direction.value)
         self.windSpeed = Speed(roundedSpeed: metar.wind_speed.value)
     }
