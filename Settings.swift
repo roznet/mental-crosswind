@@ -11,12 +11,18 @@ class Settings {
     
     static let defaultIcao : String = "EGLL"
     static let defaultUpdateMethod : UpdateMethod = .none
-    static let defaultRunway : Int = 24
+    static let defaultRunway : Int = 240
     
     enum UpdateMethod : String {
         case custom = "custom"
         case nearest = "nearest"
         case none = "none"
+    }
+    
+    enum StartingMode : String {
+        case practice = "practice"
+        case analysis = "analysis"
+        case last = "last"
     }
     
     enum Key : String {
@@ -25,8 +31,8 @@ class Settings {
         case runway = "default-runway"
         case wind_speed = "last-wind-speed"
         case wind_direction = "last-wind-direction"
-        case last_runway = "last-runway"
         case analysis_is_displayed = "analysis-is-displayed"
+        case starting_mode = "starting-mode"
     }
     
     static func registerDefaults() {
@@ -35,10 +41,11 @@ class Settings {
             Key.update_method.rawValue : Self.defaultUpdateMethod.rawValue,
             Key.runway.rawValue        : Self.defaultRunway,
             Key.wind_speed.rawValue    : 10,
-            Key.wind_direction.rawValue : (Self.defaultRunway * 10 + 10) % 360
+            Key.wind_direction.rawValue : (Self.defaultRunway * 10 + 10) % 360,
+            Key.starting_mode.rawValue : StartingMode.last.rawValue,
         ])
     }
-    
+        
     var analysisIsDisplayed : Bool {
         get {
             let rv = UserDefaults.standard.bool(forKey: Key.analysis_is_displayed.rawValue)
@@ -59,6 +66,20 @@ class Settings {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: Key.airport_icao.rawValue)
+        }
+    }
+    
+    var startingMode : StartingMode {
+        get {
+            if let rawMode = UserDefaults.standard.string(forKey: Key.starting_mode.rawValue),
+               let mode = StartingMode(rawValue: rawMode) {
+                return mode
+            }else{
+                return .last
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue.rawValue, forKey: Key.starting_mode.rawValue)
         }
     }
     

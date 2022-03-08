@@ -63,7 +63,7 @@ struct Heading {
     }
     
     var runwayDescription : String {
-        get { let x = Int(round(heading/10)); return x == 0 ? "36" : "\(x)" }
+        get { let x = Int(round(heading/10)); return x == 0 ? "36" : "\(String(format: "%02d",x))" }
         set { if let x = Int(newValue) { self.roundedHeading = (x % 360) * 10 } }
     }
     

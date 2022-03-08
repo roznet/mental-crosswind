@@ -84,6 +84,7 @@ class HeadingIndicatorView: UIView {
         
     // for now keep heading and runway consistent
     private var heading : CGFloat { CGFloat(self.model.runwayHeading.heading)}
+    private var runwayDescription : String { self.model.runwayHeading.runwayDescription }
     private var windHeading : CGFloat { return self.model.windHeading.heading }
     private var windSpeed : CGFloat { return self.model.windSpeed.speed }
     private var windSizePercent : CGFloat { min(50.0,max(10.0, windSpeed)) }
@@ -137,7 +138,7 @@ class HeadingIndicatorView: UIView {
             stripePath.fill()
         }
         
-        let runwayNumber = "\(Int(round(heading/10.0)))" as NSString
+        let runwayNumber = runwayDescription as NSString
         let numberCenter = CGPoint(x: runwayBottomLeft.x + runwayWidth/2.0,
                                    y: runwayBottomLeft.y -  (2*stripeHeightOffset + stripeHeight * 1.5) )
         runwayNumber.draw(centeredAt: numberCenter, angle: 0, withAttribute: self.labelAttribute)

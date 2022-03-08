@@ -9,6 +9,10 @@ import UIKit
 import CoreLocation
 import OSLog
 
+extension Notification {
+    static let SettingsChangedNotificationName  = Notification.Name(rawValue: "SettingsChangedNotification")
+}
+
 class RunwayWindViewController: UIViewController {
     @IBOutlet weak var headingIndicatorView: HeadingIndicatorView!
     @IBOutlet weak var displayHideButton: UIButton!
@@ -56,7 +60,7 @@ class RunwayWindViewController: UIViewController {
             self.windSourceLabel.isHidden = false
         }else{
             self.windLabel.isHidden = true
-            self.windSourceLabel.isHidden = true
+            self.windSourceLabel.isHidden = false
         }
         if displayWindSpeed {
             self.crossWindSpeedLabel.text = runwayWindModel.crossWindSpeed.descriptionWithUnit
@@ -100,6 +104,7 @@ class RunwayWindViewController: UIViewController {
     }
         
     func syncSettingsToView() {
+        
         if Settings.shared.analysisIsDisplayed {
             self.displayWindSpeed = true
             self.displayWindComponent = true
@@ -174,6 +179,16 @@ class RunwayWindViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.headingIndicatorView.labelAttribute = [ .foregroundColor: UIColor.label]
+
+        // on load update starting display if necessary
+        switch Settings.shared.startingMode {
+        case .analysis:
+            Settings.shared.analysisIsDisplayed = true
+        case .practice:
+            Settings.shared.analysisIsDisplayed = false
+        case .last:
+            break
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -183,6 +198,14 @@ class RunwayWindViewController: UIViewController {
         self.refreshWindFromMetar()
         NotificationCenter.default.addObserver(forName: Notification.BackgroundNotificationName, object: nil, queue: nil) { _ in
             self.runwayWindModel.saveToSettings()
+        }
+        NotificationCenter.default.addObserver(forName: Notification.SettingsChangedNotificationName, object: nil, queue: nil) {
+            _ in
+            DispatchQueue.main.async {
+                self.updateFromSettings()
+                self.syncModelToView()
+                self.refreshWindFromMetar()
+            }
         }
     }
 

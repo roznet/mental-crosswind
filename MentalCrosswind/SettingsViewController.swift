@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var defaultRunwayEntryText: UITextField!
+    @IBOutlet weak var startingModeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var updateSegmentedControl: UISegmentedControl!
     @IBOutlet weak var icaoTextField: UITextField!
     @IBOutlet weak var airportLabel: UILabel!
@@ -23,19 +23,28 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         self.syncSettingsToView()
         self.icaoTextField.delegate = self
-        self.defaultRunwayEntryText.delegate = self
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.icaoTextField.delegate = nil
-        self.defaultRunwayEntryText.delegate = nil
     }
     
     @IBAction func doneButton(_ sender: Any) {
+        NotificationCenter.default.post(name: Notification.SettingsChangedNotificationName, object: nil)
         self.dismiss(animated: true)
     }
 
+    @IBAction func startingModeSegmentChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            Settings.shared.startingMode = .practice
+        }else if sender.selectedSegmentIndex == 1 {
+            Settings.shared.startingMode = .analysis
+        }else if sender.selectedSegmentIndex == 2 {
+            Settings.shared.startingMode = .last
+        }
+    }
+    
     @IBAction func updateSegmentChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             self.airportLabel.isEnabled = true
@@ -63,8 +72,16 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             updateSegmentedControl.selectedSegmentIndex = 0
         }
         
+        switch Settings.shared.startingMode {
+        case .practice:
+            startingModeSegmentedControl.selectedSegmentIndex = 0
+        case .analysis:
+            startingModeSegmentedControl.selectedSegmentIndex = 1
+        case .last:
+            startingModeSegmentedControl.selectedSegmentIndex = 2
+        }
+        
         self.icaoTextField.text = Settings.shared.airportIcao
-        self.defaultRunwayEntryText.text = Settings.shared.heading(key: .last_runway).runwayDescription
     }
     
     //MARK: - textField delegate
@@ -73,8 +90,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         if let text = textField.text {
             if textField == self.icaoTextField {
                 Settings.shared.airportIcao = text
-            }else if textField == self.defaultRunwayEntryText {
-                Settings.shared.setHeading(key: .last_runway, heading: Heading(runwayDescription: text))
             }
         }
     }
@@ -83,8 +98,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         if let text = textField.text {
             if textField == self.icaoTextField {
                 Settings.shared.airportIcao = text
-            }else if textField == self.defaultRunwayEntryText {
-                Settings.shared.setHeading(key: .last_runway, heading: Heading(runwayDescription: text))
             }
         }
     }

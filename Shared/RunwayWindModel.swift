@@ -160,7 +160,7 @@ import AVFoundation
     func randomizeWind() {
         let windOffset = Int.random(in: -9...9)
         let runwayHeading = runwayHeading.heading
-        let windHeading = runwayHeading + Double(windOffset * 10)
+        let windHeading = round(runwayHeading/10)*10 + Double(windOffset * 10)
         let windSpeed = self.random(probabilities: self.speedProbabilities())
         // for gust compute % higher than wind
         let windGust = Double.random(in: 0...100)
@@ -171,36 +171,6 @@ import AVFoundation
         }
         self.windSpeed = Speed(speed: windSpeed )
         self.windHeading = Heading(heading: windHeading )
-    }
-    
-    //MARK: - Analyse
-
-    func hint() -> String {
-        let xwind = self.runwayHeading.absoluteDifference(with: self.windHeading)
-        let xcomponent = self.runwayHeading.crossWindComponent(with: self.windHeading)
-        
-        let memo = [ (15,25), (30,50), (45,75), (60,100)]
-        if let closest = memo.enumerated().min(by: { abs( $0.1.0 - xwind.roundedHeading ) < abs( $1.1.0 - xwind.roundedHeading ) }) {
-            return "\(xwind.description)deg proxy=\(closest.element.0)deg Cross=\(closest.element.1)% "
-        }else{
-            return "\(xwind.description)deg Cross=\(xcomponent)% "
-        }
-    }
-
-    
-    func analyseHint() -> String {
-        let xwind = self.runwayHeading.absoluteDifference(with: self.windHeading)
-        let xcomponent = self.runwayHeading.crossWindComponent(with: self.windHeading)
-        let direct = self.runwayHeading.headWindComponent(with: self.windHeading)
-        
-        return "\(xwind.description)deg Cross=\(xcomponent)% Head=\(direct)%"
-    }
-    
-    func analyse() -> String {
-        let xwind = self.runwayHeading.absoluteDifference(with: self.windHeading)
-        let from = self.runwayHeading.crossDirection(to: self.windHeading)
-        
-        return "\(xwind.description)deg \(from)  Cross=\(self.crossWindSpeed.description)kts Head=\(self.headWindSpeed.description)kts"
     }
     
     //MARK: - change values
@@ -244,11 +214,14 @@ import AVFoundation
     func updateFromSettings(){
         self.windSpeed = Settings.shared.speed(key: .wind_speed)
         self.windHeading = Settings.shared.heading(key: .wind_direction)
+        self.runwayHeading = Settings.shared.heading(key: .runway)
     }
     
     func saveToSettings(){
         Settings.shared.setSpeed(key: .wind_speed, speed: self.windSpeed)
         Settings.shared.setHeading(key: .wind_direction, heading: self.windHeading)
+        Settings.shared.setHeading(key: .runway, heading: self.runwayHeading)
+        
     }
 }
 
