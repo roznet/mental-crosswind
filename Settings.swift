@@ -26,6 +26,74 @@ struct UserStorage<Type> {
     }
 }
 
+@propertyWrapper
+struct EnumStorage< Type : RawRepresentable > {
+    private let key : String
+    private let defaultValue : Type
+
+    init(key : String, defaultValue : Type){
+        self.key = key
+        self.defaultValue = defaultValue
+    }
+    
+    var wrappedValue : Type {
+        get {
+            if let raw = UserDefaults.standard.object(forKey: key) as? Type.RawValue {
+                return Type(rawValue: raw) ?? defaultValue
+            }else{
+                return defaultValue
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue.rawValue, forKey: key)
+        }
+    }
+
+}
+
+@propertyWrapper
+struct HeadingStorage {
+    private let key : String
+    private let defaultValue : Heading
+    
+    init(key : String, defaultValue : Heading){
+        self.key = key
+        self.defaultValue = defaultValue
+    }
+    
+    var wrappedValue : Heading {
+        get {
+            let val = UserDefaults.standard.integer(forKey: key)
+            return Heading(roundedHeading: val)
+        }
+        set {
+            UserDefaults.standard.set(newValue.roundedHeading, forKey: key)
+        }
+    }
+}
+
+@propertyWrapper
+struct SpeedStorage {
+    private let key : String
+    private let defaultValue : Speed
+    
+    init(key : String, defaultValue : Speed){
+        self.key = key
+        self.defaultValue = defaultValue
+    }
+    
+    var wrappedValue : Speed {
+        get {
+            let val = UserDefaults.standard.integer(forKey: key)
+            return Speed(roundedSpeed: val)
+        }
+        set {
+            UserDefaults.standard.set(newValue.roundedSpeed, forKey: key)
+        }
+    }
+}
+
+
 
 class Settings {
     
@@ -79,52 +147,21 @@ class Settings {
     @UserStorage(key: Key.airport_icao.rawValue, defaultValue: "EGLL")
     var airportIcao : String
     
-    var startingMode : StartingMode {
-        get {
-            if let rawMode = UserDefaults.standard.string(forKey: Key.starting_mode.rawValue),
-               let mode = StartingMode(rawValue: rawMode) {
-                return mode
-            }else{
-                return .last
-            }
-        }
-        set {
-            UserDefaults.standard.set(newValue.rawValue, forKey: Key.starting_mode.rawValue)
-        }
-    }
+    @EnumStorage(key: Key.starting_mode.rawValue, defaultValue: StartingMode.last)
+    var startingMode : StartingMode
     
-    var updateMethod : UpdateMethod {
-        get {
-            if let rawMethod = UserDefaults.standard.string(forKey: Key.update_method.rawValue),
-               let method = UpdateMethod(rawValue: rawMethod){
-                return method
-            }else{
-                return Self.defaultUpdateMethod
-            }
-        }
-        set {
-            UserDefaults.standard.set(newValue.rawValue, forKey: Key.update_method.rawValue)
-        }
-    }
+    @EnumStorage(key: Key.update_method.rawValue, defaultValue: UpdateMethod.none)
+    var updateMethod : UpdateMethod
     
-    func heading(key : Key) -> Heading{
-        let val = UserDefaults.standard.integer(forKey: key.rawValue)
-        return Heading(roundedHeading: val)
-    }
+    @SpeedStorage(key: Key.wind_speed.rawValue, defaultValue: Speed(roundedSpeed: 10))
+    var windSpeed : Speed
     
-    func setHeading(key : Key, heading : Heading){
-        UserDefaults.standard.set(heading.roundedHeading, forKey: key.rawValue)
-    }
+    @HeadingStorage(key: Key.wind_direction.rawValue, defaultValue: Heading(roundedHeading: 200))
+    var windHeading : Heading
     
-    func speed(key : Key) -> Speed {
-        let val = UserDefaults.standard.integer(forKey: key.rawValue)
-        return Speed(roundedSpeed: val)
-    }
-    
-    func setSpeed(key : Key, speed : Speed){
-        UserDefaults.standard.set(speed.roundedSpeed, forKey: key.rawValue)
-    }
-    
+    @HeadingStorage(key: Key.runway.rawValue, defaultValue: Heading(roundedHeading: 240))
+    var runwayHeading : Heading
+        
     static var shared : Settings = Settings()
     
     private init(){

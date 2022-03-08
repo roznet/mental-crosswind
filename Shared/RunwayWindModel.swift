@@ -212,15 +212,15 @@ import AVFoundation
     //MARK:- settings
     
     func updateFromSettings(){
-        self.windSpeed = Settings.shared.speed(key: .wind_speed)
-        self.windHeading = Settings.shared.heading(key: .wind_direction)
-        self.runwayHeading = Settings.shared.heading(key: .runway)
+        self.windSpeed = Settings.shared.windSpeed
+        self.windHeading = Settings.shared.windHeading
+        self.runwayHeading = Settings.shared.runwayHeading
     }
     
     func saveToSettings(){
-        Settings.shared.setSpeed(key: .wind_speed, speed: self.windSpeed)
-        Settings.shared.setHeading(key: .wind_direction, heading: self.windHeading)
-        Settings.shared.setHeading(key: .runway, heading: self.runwayHeading)
+        Settings.shared.windSpeed = self.windSpeed
+        Settings.shared.windHeading = self.windHeading
+        Settings.shared.runwayHeading = self.runwayHeading
         
     }
 }
