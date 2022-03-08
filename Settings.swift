@@ -26,6 +26,7 @@ class Settings {
         case wind_speed = "last-wind-speed"
         case wind_direction = "last-wind-direction"
         case last_runway = "last-runway"
+        case analysis_is_displayed = "analysis-is-displayed"
     }
     
     static func registerDefaults() {
@@ -36,6 +37,16 @@ class Settings {
             Key.wind_speed.rawValue    : 10,
             Key.wind_direction.rawValue : (Self.defaultRunway * 10 + 10) % 360
         ])
+    }
+    
+    var analysisIsDisplayed : Bool {
+        get {
+            let rv = UserDefaults.standard.bool(forKey: Key.analysis_is_displayed.rawValue)
+            return rv
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Key.analysis_is_displayed.rawValue)
+        }
     }
     
     var airportIcao : String {

@@ -11,7 +11,6 @@ import Geomagnetism
 import OSLog
 
 struct Airport : Decodable {
-    static let logger = Logger(subsystem: "net.ro-z.mental-crosswind", category: "Airport")
     
     enum Category: String, Decodable {
             case city, name, country, elevation_ft, icao, latitude, longitude, reporting
@@ -92,10 +91,11 @@ struct Airport : Decodable {
             var request = URLRequest(url: url)
             
             request.setValue("BEARER \(token)", forHTTPHeaderField: "Authorization")
+            Logger.web.info("query \(url, privacy: .public)")
 
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
-                    Self.logger.error("failed with \(error.localizedDescription, privacy: .public)")
+                    Logger.web.error("failed with \(error.localizedDescription, privacy: .public)")
                     callback(nil)
                     return
                 }
@@ -108,9 +108,10 @@ struct Airport : Decodable {
                    let data = data {
                     do {
                         let rv : Airport = try JSONDecoder().decode(Airport.self, from: data)
+                        Logger.web.info("success \(url, privacy: .public)")
                         callback(rv)
                     } catch {
-                        Self.logger.error("failed with \(error.localizedDescription, privacy: .public)")
+                        Logger.web.error("failed with \(error.localizedDescription, privacy: .public)")
                         callback(nil)
                     }
                 }
@@ -123,16 +124,17 @@ struct Airport : Decodable {
         if let url = URL(string: "https://avwx.rest/api/station/near/\(coord.latitude),\(coord.longitude)?n=\(count)&reporting=true"),
            let token = Secrets.shared["avwx"]{
             var request = URLRequest(url: url)
-            
+            Logger.web.info("query \(url, privacy: .public)")
             request.setValue("BEARER \(token)", forHTTPHeaderField: "Authorization")
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
-                    print( error)
+                    Logger.web.error("failed with \(error.localizedDescription, privacy: .public)")
                     callback([])
                     return
                 }
                 guard let httpResponse = response as? HTTPURLResponse,
                       (200...299).contains(httpResponse.statusCode) else {
+                          Logger.web.error("failed with invalid statusCode")
                           callback([])
                           return
                       }
@@ -140,9 +142,10 @@ struct Airport : Decodable {
                    let data = data {
                     do {
                         let rv : [Near] = try JSONDecoder().decode([Near].self, from: data)
+                        Logger.web.info("success \(url, privacy: .public)")
                         callback(rv.map { $0.station })
                     } catch {
-                        print( "\(error)")
+                        Logger.web.error("failed with \(error.localizedDescription, privacy: .public)")
                         callback([])
                     }
                 }

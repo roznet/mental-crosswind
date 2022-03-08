@@ -15,6 +15,7 @@
 		421E8C0B27CA856C00A9B264 /* secrets.json in Resources */ = {isa = PBXBuildFile; fileRef = 421E8C0A27CA856C00A9B264 /* secrets.json */; };
 		423C847327D25DCC00E7AE84 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423C847227D25DCC00E7AE84 /* SettingsViewController.swift */; };
 		423C847527D2891100E7AE84 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423C847427D2891100E7AE84 /* Settings.swift */; };
+		423FECA127D646C500C67A4B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FECA027D646C500C67A4B /* Log.swift */; };
 		427E328127D43C9F000A914E /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427E328027D43C9F000A914E /* Airport.swift */; };
 		427E328827D43CBA000A914E /* station-egtf.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E328427D43CBA000A914E /* station-egtf.json */; };
 		427E328927D43CBA000A914E /* station-egll.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E328527D43CBA000A914E /* station-egll.json */; };
@@ -27,19 +28,6 @@
 		427E329827D44DE9000A914E /* metar-kpao.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E329427D44DE8000A914E /* metar-kpao.json */; };
 		427E329927D44DE9000A914E /* station-ksfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E329527D44DE9000A914E /* station-ksfo.json */; };
 		427E329A27D44DE9000A914E /* metar-ksfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 427E329627D44DE9000A914E /* metar-ksfo.json */; };
-		42875C8C27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
-		42875C8D27B9235000E47BB5 /* xwindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7C27B9234D00E47BB5 /* xwindApp.swift */; };
-		42875C8E27B9235000E47BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7D27B9234D00E47BB5 /* ContentView.swift */; };
-		42875C8F27B9235000E47BB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C7D27B9234D00E47BB5 /* ContentView.swift */; };
-		42875C9027B9235000E47BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42875C7E27B9235000E47BB5 /* Assets.xcassets */; };
-		42875C9127B9235000E47BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42875C7E27B9235000E47BB5 /* Assets.xcassets */; };
-		42875C9F27B96F9400E47BB5 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9E27B96F9400E47BB5 /* Heading.swift */; };
-		42875CA027B96F9400E47BB5 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9E27B96F9400E47BB5 /* Heading.swift */; };
-		42875CA227B975E600E47BB5 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
-		42875CA327B975E600E47BB5 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
-		42875CB827B97E0800E47BB5 /* xwindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CB727B97E0800E47BB5 /* xwindTests.swift */; };
-		42910E4427BA3E4500319492 /* RunwayWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42910E4327BA3E4500319492 /* RunwayWindModel.swift */; };
-		42910E4527BA3E4500319492 /* RunwayWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42910E4327BA3E4500319492 /* RunwayWindModel.swift */; };
 		42910E4627BA3E4500319492 /* RunwayWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42910E4327BA3E4500319492 /* RunwayWindModel.swift */; };
 		42B7C4A627B9A665007C59F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4A527B9A665007C59F8 /* AppDelegate.swift */; };
 		42B7C4A827B9A665007C59F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4A727B9A665007C59F8 /* SceneDelegate.swift */; };
@@ -53,18 +41,10 @@
 		42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9E27B96F9400E47BB5 /* Heading.swift */; };
 		42B7C4D527B9A67E007C59F8 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
 		42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */; };
-		42D90E6A27D51DA00034DFAC /* Geomagnetism in Frameworks */ = {isa = PBXBuildFile; productRef = 42D90E6927D51DA00034DFAC /* Geomagnetism */; };
 		42D90E6D27D523E20034DFAC /* Geomagnetism in Frameworks */ = {isa = PBXBuildFile; productRef = 42D90E6C27D523E20034DFAC /* Geomagnetism */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		42875CB927B97E0800E47BB5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42875C7727B9234D00E47BB5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 42875C8227B9235000E47BB5;
-			remoteInfo = "xwind (iOS)";
-		};
 		42B7C4B927B9A666007C59F8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 42875C7727B9234D00E47BB5 /* Project object */;
@@ -90,6 +70,7 @@
 		421E8C0A27CA856C00A9B264 /* secrets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = secrets.json; path = MentalCrosswind/secrets.json; sourceTree = "<group>"; };
 		423C847227D25DCC00E7AE84 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		423C847427D2891100E7AE84 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		423FECA027D646C500C67A4B /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Shared/Log.swift; sourceTree = "<group>"; };
 		427E328027D43C9F000A914E /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.swift; path = MentalCrosswind/Airport.swift; sourceTree = "<group>"; };
 		427E328427D43CBA000A914E /* station-egtf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "station-egtf.json"; sourceTree = "<group>"; };
 		427E328527D43CBA000A914E /* station-egll.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "station-egll.json"; sourceTree = "<group>"; };
@@ -102,17 +83,8 @@
 		427E329427D44DE8000A914E /* metar-kpao.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "metar-kpao.json"; sourceTree = "<group>"; };
 		427E329527D44DE9000A914E /* station-ksfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "station-ksfo.json"; sourceTree = "<group>"; };
 		427E329627D44DE9000A914E /* metar-ksfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "metar-ksfo.json"; sourceTree = "<group>"; };
-		42875C7C27B9234D00E47BB5 /* xwindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xwindApp.swift; sourceTree = "<group>"; };
-		42875C7D27B9234D00E47BB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		42875C7E27B9235000E47BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		42875C8327B9235000E47BB5 /* MentalCrosswind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalCrosswind.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		42875C8927B9235000E47BB5 /* mental-crosswind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mental-crosswind.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		42875C8B27B9235000E47BB5 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		42875C9E27B96F9400E47BB5 /* Heading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Heading.swift; path = Shared/Heading.swift; sourceTree = "<group>"; };
 		42875CA127B975E600E47BB5 /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Speed.swift; path = Shared/Speed.swift; sourceTree = "<group>"; };
-		42875CB527B97E0800E47BB5 /* mental-crosswindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mental-crosswindTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		42875CB727B97E0800E47BB5 /* xwindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xwindTests.swift; sourceTree = "<group>"; };
-		42875CBE27B97EB500E47BB5 /* xwind (iOS).xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "xwind (iOS).xctestplan"; sourceTree = "<group>"; };
 		42910E4327BA3E4500319492 /* RunwayWindModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunwayWindModel.swift; path = Shared/RunwayWindModel.swift; sourceTree = "<group>"; };
 		42B7C4A327B9A665007C59F8 /* MentalCrosswind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalCrosswind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B7C4A527B9A665007C59F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,28 +103,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		42875C8027B9235000E47BB5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42D90E6A27D51DA00034DFAC /* Geomagnetism in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42875C8627B9235000E47BB5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42875CB227B97E0800E47BB5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42B7C4A027B9A665007C59F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,6 +139,15 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		423FEC9F27D6465500C67A4B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				423FECA027D646C500C67A4B /* Log.swift */,
+				423C847427D2891100E7AE84 /* Settings.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		427E328227D43CBA000A914E /* testAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,11 +169,9 @@
 		42875C7627B9234D00E47BB5 = {
 			isa = PBXGroup;
 			children = (
+				423FEC9F27D6465500C67A4B /* Utils */,
 				421E8C0527CA735100A9B264 /* API */,
 				42875C9D27B96F7B00E47BB5 /* Model */,
-				42875C7B27B9234D00E47BB5 /* Shared */,
-				42875C8A27B9235000E47BB5 /* macOS */,
-				42875CB627B97E0800E47BB5 /* xwindTests */,
 				42B7C4A427B9A665007C59F8 /* MentalCrosswind */,
 				42B7C4BB27B9A667007C59F8 /* MentalCrosswindTests */,
 				42B7C4C527B9A667007C59F8 /* MentalCrosswindUITests */,
@@ -223,35 +180,14 @@
 			);
 			sourceTree = "<group>";
 		};
-		42875C7B27B9234D00E47BB5 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				42875C7C27B9234D00E47BB5 /* xwindApp.swift */,
-				42875C7D27B9234D00E47BB5 /* ContentView.swift */,
-				42875C7E27B9235000E47BB5 /* Assets.xcassets */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		42875C8427B9235000E47BB5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				42875C8327B9235000E47BB5 /* MentalCrosswind.app */,
-				42875C8927B9235000E47BB5 /* mental-crosswind.app */,
-				42875CB527B97E0800E47BB5 /* mental-crosswindTests.xctest */,
 				42B7C4A327B9A665007C59F8 /* MentalCrosswind.app */,
 				42B7C4B827B9A666007C59F8 /* MentalCrosswindTests.xctest */,
 				42B7C4C227B9A667007C59F8 /* MentalCrosswindUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		42875C8A27B9235000E47BB5 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				42875C8B27B9235000E47BB5 /* macOS.entitlements */,
-			);
-			path = macOS;
 			sourceTree = "<group>";
 		};
 		42875C9D27B96F7B00E47BB5 /* Model */ = {
@@ -261,18 +197,8 @@
 				42875C9E27B96F9400E47BB5 /* Heading.swift */,
 				42875CA127B975E600E47BB5 /* Speed.swift */,
 				421E8BFA27C7D57B00A9B264 /* Percent.swift */,
-				423C847427D2891100E7AE84 /* Settings.swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		42875CB627B97E0800E47BB5 /* xwindTests */ = {
-			isa = PBXGroup;
-			children = (
-				42875CB727B97E0800E47BB5 /* xwindTests.swift */,
-				42875CBE27B97EB500E47BB5 /* xwind (iOS).xctestplan */,
-			);
-			path = xwindTests;
 			sourceTree = "<group>";
 		};
 		42B7C4A427B9A665007C59F8 /* MentalCrosswind */ = {
@@ -321,61 +247,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		42875C8227B9235000E47BB5 /* mental-crosswind (iOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 42875C9427B9235000E47BB5 /* Build configuration list for PBXNativeTarget "mental-crosswind (iOS)" */;
-			buildPhases = (
-				42875C7F27B9235000E47BB5 /* Sources */,
-				42875C8027B9235000E47BB5 /* Frameworks */,
-				42875C8127B9235000E47BB5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "mental-crosswind (iOS)";
-			packageProductDependencies = (
-				42D90E6927D51DA00034DFAC /* Geomagnetism */,
-			);
-			productName = "xwind (iOS)";
-			productReference = 42875C8327B9235000E47BB5 /* MentalCrosswind.app */;
-			productType = "com.apple.product-type.application";
-		};
-		42875C8827B9235000E47BB5 /* mental-crosswind (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 42875C9727B9235000E47BB5 /* Build configuration list for PBXNativeTarget "mental-crosswind (macOS)" */;
-			buildPhases = (
-				42875C8527B9235000E47BB5 /* Sources */,
-				42875C8627B9235000E47BB5 /* Frameworks */,
-				42875C8727B9235000E47BB5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "mental-crosswind (macOS)";
-			productName = "xwind (macOS)";
-			productReference = 42875C8927B9235000E47BB5 /* mental-crosswind.app */;
-			productType = "com.apple.product-type.application";
-		};
-		42875CB427B97E0800E47BB5 /* mental-crosswindTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 42875CBB27B97E0800E47BB5 /* Build configuration list for PBXNativeTarget "mental-crosswindTests" */;
-			buildPhases = (
-				42875CB127B97E0800E47BB5 /* Sources */,
-				42875CB227B97E0800E47BB5 /* Frameworks */,
-				42875CB327B97E0800E47BB5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				42875CBA27B97E0800E47BB5 /* PBXTargetDependency */,
-			);
-			name = "mental-crosswindTests";
-			productName = xwindTests;
-			productReference = 42875CB527B97E0800E47BB5 /* mental-crosswindTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		42B7C4A227B9A665007C59F8 /* MentalCrosswind */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42B7C4CA27B9A667007C59F8 /* Build configuration list for PBXNativeTarget "MentalCrosswind" */;
@@ -442,16 +313,6 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					42875C8227B9235000E47BB5 = {
-						CreatedOnToolsVersion = 13.2.1;
-					};
-					42875C8827B9235000E47BB5 = {
-						CreatedOnToolsVersion = 13.2.1;
-					};
-					42875CB427B97E0800E47BB5 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 42875C8227B9235000E47BB5;
-					};
 					42B7C4A227B9A665007C59F8 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -481,9 +342,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				42875C8227B9235000E47BB5 /* mental-crosswind (iOS) */,
-				42875C8827B9235000E47BB5 /* mental-crosswind (macOS) */,
-				42875CB427B97E0800E47BB5 /* mental-crosswindTests */,
 				42B7C4A227B9A665007C59F8 /* MentalCrosswind */,
 				42B7C4B727B9A666007C59F8 /* MentalCrosswindTests */,
 				42B7C4C127B9A667007C59F8 /* MentalCrosswindUITests */,
@@ -492,29 +350,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		42875C8127B9235000E47BB5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42875C9027B9235000E47BB5 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42875C8727B9235000E47BB5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42875C9127B9235000E47BB5 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42875CB327B97E0800E47BB5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42B7C4A127B9A665007C59F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -554,38 +389,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		42875C7F27B9235000E47BB5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42875C9F27B96F9400E47BB5 /* Heading.swift in Sources */,
-				42875C8E27B9235000E47BB5 /* ContentView.swift in Sources */,
-				42875CA227B975E600E47BB5 /* Speed.swift in Sources */,
-				42875C8C27B9235000E47BB5 /* xwindApp.swift in Sources */,
-				42910E4427BA3E4500319492 /* RunwayWindModel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42875C8527B9235000E47BB5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42875CA027B96F9400E47BB5 /* Heading.swift in Sources */,
-				42875C8F27B9235000E47BB5 /* ContentView.swift in Sources */,
-				42875CA327B975E600E47BB5 /* Speed.swift in Sources */,
-				42875C8D27B9235000E47BB5 /* xwindApp.swift in Sources */,
-				42910E4527BA3E4500319492 /* RunwayWindModel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42875CB127B97E0800E47BB5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42875CB827B97E0800E47BB5 /* xwindTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42B7C49F27B9A665007C59F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -596,6 +399,7 @@
 				42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */,
 				4206AF9527BA53CF00BF5C57 /* HeadingIndicatorGeometry.swift in Sources */,
 				423C847527D2891100E7AE84 /* Settings.swift in Sources */,
+				423FECA127D646C500C67A4B /* Log.swift in Sources */,
 				421E8BFB27C7D57B00A9B264 /* Percent.swift in Sources */,
 				421E8C0727CA738E00A9B264 /* Metar.swift in Sources */,
 				42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */,
@@ -628,11 +432,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		42875CBA27B97E0800E47BB5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 42875C8227B9235000E47BB5 /* mental-crosswind (iOS) */;
-			targetProxy = 42875CB927B97E0800E47BB5 /* PBXContainerItemProxy */;
-		};
 		42B7C4BA27B9A666007C59F8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 42B7C4A227B9A665007C59F8 /* MentalCrosswind */;
@@ -773,164 +572,6 @@
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-			};
-			name = Release;
-		};
-		42875C9527B9235000E47BB5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M7QSSF3624;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.mental-crosswind";
-				PRODUCT_NAME = MentalCrosswind;
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		42875C9627B9235000E47BB5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M7QSSF3624;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.mental-crosswind";
-				PRODUCT_NAME = MentalCrosswind;
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		42875C9827B9235000E47BB5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M7QSSF3624;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.mental-crosswind";
-				PRODUCT_NAME = "mental-crosswind";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		42875C9927B9235000E47BB5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M7QSSF3624;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.mental-crosswind";
-				PRODUCT_NAME = "mental-crosswind";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		42875CBC27B97E0800E47BB5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M7QSSF3624;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.xwindTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MentalCrosswind.app/MentalCrosswind";
-			};
-			name = Debug;
-		};
-		42875CBD27B97E0800E47BB5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M7QSSF3624;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.ro-z.xwindTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MentalCrosswind.app/MentalCrosswind";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -1095,33 +736,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		42875C9427B9235000E47BB5 /* Build configuration list for PBXNativeTarget "mental-crosswind (iOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				42875C9527B9235000E47BB5 /* Debug */,
-				42875C9627B9235000E47BB5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		42875C9727B9235000E47BB5 /* Build configuration list for PBXNativeTarget "mental-crosswind (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				42875C9827B9235000E47BB5 /* Debug */,
-				42875C9927B9235000E47BB5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		42875CBB27B97E0800E47BB5 /* Build configuration list for PBXNativeTarget "mental-crosswindTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				42875CBC27B97E0800E47BB5 /* Debug */,
-				42875CBD27B97E0800E47BB5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		42B7C4CA27B9A667007C59F8 /* Build configuration list for PBXNativeTarget "MentalCrosswind" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1163,11 +777,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		42D90E6927D51DA00034DFAC /* Geomagnetism */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */;
-			productName = Geomagnetism;
-		};
 		42D90E6C27D523E20034DFAC /* Geomagnetism */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */;

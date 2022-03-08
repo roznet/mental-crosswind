@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 struct Metar : Decodable {
     enum Category: String, Decodable {
@@ -25,11 +26,11 @@ struct Metar : Decodable {
         if let url = URL(string: "https://avwx.rest/api/metar/\(icao)"),
            let token = Secrets.shared["avwx"]{
             var request = URLRequest(url: url)
-            
+            Logger.web.info("query \(url, privacy: .public)")
             request.setValue("BEARER \(token)", forHTTPHeaderField: "Authorization")
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
-                    print( error)
+                    Logger.web.error("failed with \(error.localizedDescription, privacy: .public)")
                     callback(nil,icao)
                     return
                 }

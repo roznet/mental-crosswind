@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import OSLog
 
 class RunwayWindViewController: UIViewController {
     @IBOutlet weak var headingIndicatorView: HeadingIndicatorView!
@@ -98,13 +99,28 @@ class RunwayWindViewController: UIViewController {
         
     }
         
+    func syncSettingsToView() {
+        if Settings.shared.analysisIsDisplayed {
+            self.displayWindSpeed = true
+            self.displayWindComponent = true
+            self.displayWindLabel = true
+            self.displayHideButton.setTitle("Hide", for: .normal)
+            self.headingIndicatorView.displayWind = .wind
+            self.headingIndicatorView.displayCrossWind = .speed
+
+        }else{
+            self.displayWindSpeed = false
+            self.displayWindComponent = false
+            self.displayWindLabel = false
+            self.displayHideButton.setTitle("Display", for: .normal)
+            self.headingIndicatorView.displayWind = .hidden
+            self.headingIndicatorView.displayCrossWind = .hidden;
+        }
+    }
+    
     func clearAnalysisFromView() {
-        self.displayWindLabel = false
-        self.displayWindSpeed = false
-        self.displayWindComponent = false
-        self.headingIndicatorView.displayWind = .hidden
-        self.headingIndicatorView.displayCrossWind = .hidden;
-        self.displayHideButton.setTitle("Display", for: .normal)
+        Settings.shared.analysisIsDisplayed = false
+        self.syncSettingsToView()
         self.syncModelToView()
         self.view.setNeedsDisplay()
     }
@@ -142,18 +158,27 @@ class RunwayWindViewController: UIViewController {
         }
     }
     
+    func updateFromSettings(){
+        self.runwayWindModel.updateFromSettings()
+        self.syncSettingsToView()
+    }
+    
+    func saveToSettings(){
+        self.runwayWindModel.saveToSettings()
+
+    }
+    
     //MARK: - View Controller
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.syncModelToView()
         // Do any additional setup after loading the view.
         self.headingIndicatorView.labelAttribute = [ .foregroundColor: UIColor.label]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.runwayWindModel.updateFromSettings()
+        self.updateFromSettings()
         self.syncModelToView()
         self.refreshWindFromMetar()
         NotificationCenter.default.addObserver(forName: Notification.BackgroundNotificationName, object: nil, queue: nil) { _ in
@@ -163,7 +188,7 @@ class RunwayWindViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.runwayWindModel.saveToSettings()
+        self.saveToSettings()
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -255,7 +280,7 @@ class RunwayWindViewController: UIViewController {
         
     }
         
-    //MARK: - Buttons
+    //MARK: - Buttons and sequences
     
     
     @IBAction func refreshWindButton(_ sender: Any) {
@@ -274,23 +299,11 @@ class RunwayWindViewController: UIViewController {
     }
     
     @IBAction func displayHideButton(_ sender: Any) {
-        if displayWindSpeed {
-            self.displayWindSpeed = false
-            self.displayWindComponent = false
-            self.displayWindLabel = false
-            self.displayHideButton.setTitle("Display", for: .normal)
-            self.headingIndicatorView.displayWind = .hidden
-            self.headingIndicatorView.displayCrossWind = .hidden;
-
-        }else{
-            self.displayWindSpeed = true
-            self.displayWindComponent = true
-            self.displayWindLabel = true
-            self.displayHideButton.setTitle("Hide", for: .normal)
-            self.headingIndicatorView.displayWind = .wind
-            self.headingIndicatorView.displayCrossWind = .speed
-        }
+        Logger.app.info("Toggled DisplayHide by button")
+        Settings.shared.analysisIsDisplayed.toggle()
+        self.syncSettingsToView()
         self.syncModelToView()
+        self.saveToSettings()
         self.view.setNeedsDisplay()
     }
     
