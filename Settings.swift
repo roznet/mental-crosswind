@@ -7,6 +7,26 @@
 
 import Foundation
 
+@propertyWrapper
+struct UserStorage<Type> {
+    private let key : String
+    private let defaultValue : Type
+    init(key : String, defaultValue : Type){
+        self.key = key
+        self.defaultValue = defaultValue
+    }
+    
+    var wrappedValue : Type {
+        get {
+            UserDefaults.standard.object(forKey: key) as? Type ?? defaultValue
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: key)
+        }
+    }
+}
+
+
 class Settings {
     
     static let defaultIcao : String = "EGLL"
@@ -33,6 +53,8 @@ class Settings {
         case wind_direction = "last-wind-direction"
         case analysis_is_displayed = "analysis-is-displayed"
         case starting_mode = "starting-mode"
+        case last_airports_list = "last-airport-list"
+        case last_nearest_list = "last-nearest-list"
     }
     
     static func registerDefaults() {
@@ -43,31 +65,19 @@ class Settings {
             Key.wind_speed.rawValue    : 10,
             Key.wind_direction.rawValue : (Self.defaultRunway * 10 + 10) % 360,
             Key.starting_mode.rawValue : StartingMode.last.rawValue,
+            Key.last_airports_list.rawValue : [],
+            Key.last_nearest_list.rawValue : [],
         ])
     }
-        
-    var analysisIsDisplayed : Bool {
-        get {
-            let rv = UserDefaults.standard.bool(forKey: Key.analysis_is_displayed.rawValue)
-            return rv
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: Key.analysis_is_displayed.rawValue)
-        }
-    }
     
-    var airportIcao : String {
-        get {
-            if let rv = UserDefaults.standard.string(forKey: Key.airport_icao.rawValue) {
-                return rv
-            }else{
-                return Self.defaultIcao
-            }
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: Key.airport_icao.rawValue)
-        }
-    }
+    @UserStorage(key: Key.last_airports_list.rawValue, defaultValue: [])
+    var lastAirportsList : [String]
+    
+    @UserStorage(key: Key.analysis_is_displayed.rawValue, defaultValue: true)
+    var analysisIsDisplayed : Bool
+    
+    @UserStorage(key: Key.airport_icao.rawValue, defaultValue: "EGLL")
+    var airportIcao : String
     
     var startingMode : StartingMode {
         get {

@@ -42,6 +42,7 @@
 		42B7C4D527B9A67E007C59F8 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
 		42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */; };
 		42D90E6D27D523E20034DFAC /* Geomagnetism in Frameworks */ = {isa = PBXBuildFile; productRef = 42D90E6C27D523E20034DFAC /* Geomagnetism */; };
+		42D90E7127D814130034DFAC /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 42D90E7027D814130034DFAC /* DropDown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D90E6D27D523E20034DFAC /* Geomagnetism in Frameworks */,
+				42D90E7127D814130034DFAC /* DropDown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +264,7 @@
 			name = MentalCrosswind;
 			packageProductDependencies = (
 				42D90E6C27D523E20034DFAC /* Geomagnetism */,
+				42D90E7027D814130034DFAC /* DropDown */,
 			);
 			productName = MentalCrosswind;
 			productReference = 42B7C4A327B9A665007C59F8 /* MentalCrosswind.app */;
@@ -337,6 +340,7 @@
 			mainGroup = 42875C7627B9234D00E47BB5;
 			packageReferences = (
 				42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */,
+				42D90E6F27D814130034DFAC /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = 42875C8427B9235000E47BB5 /* Products */;
 			projectDirPath = "";
@@ -774,6 +778,14 @@
 				kind = branch;
 			};
 		};
+		42D90E6F27D814130034DFAC /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -781,6 +793,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */;
 			productName = Geomagnetism;
+		};
+		42D90E7027D814130034DFAC /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42D90E6F27D814130034DFAC /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

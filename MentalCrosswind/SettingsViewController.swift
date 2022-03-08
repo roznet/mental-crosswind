@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import DropDown
+import OSLog
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var startingModeSegmentedControl: UISegmentedControl!
@@ -13,14 +15,25 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var icaoTextField: UITextField!
     @IBOutlet weak var airportLabel: UILabel!
     
+    let dropDown = DropDown()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    let choices = ["EGLF","EGLL","KPAO","EGMC","KSFO","EGMD","LFOK","LSGS"]
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        dropDown.anchorView = icaoTextField
+        dropDown.dataSource = choices
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            self.icaoTextField.text = item
+            Settings.shared.airportIcao = item
+          }
+    
+        dropDown.direction = .bottom
         self.syncSettingsToView()
         self.icaoTextField.delegate = self
     }
@@ -86,19 +99,30 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - textField delegate
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
+        dropDown.show()
+    }
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text {
             if textField == self.icaoTextField {
+                Logger.app.info("Selected new airport \(text)")
                 Settings.shared.airportIcao = text
+                dropDown.hide()
             }
         }
+        
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        if let text = textField.text {
-            if textField == self.icaoTextField {
-                Settings.shared.airportIcao = text
-            }
+        if textField == self.icaoTextField {
+            dropDown.show()
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        dropDown.hide()
+        return false
     }
 }
