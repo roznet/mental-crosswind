@@ -51,8 +51,12 @@ class RunwayWindViewController: UIViewController {
             if let windSourceDate = self.runwayWindModel.windSourceDate {
                 let ageInMinutes = Int(Date().timeIntervalSince1970 - windSourceDate.timeIntervalSince1970) / 60
                 // < 0 disable for now, as not updating in realtime
-                if ageInMinutes < 0 {
+                if ageInMinutes < 60 {
+                    self.startUpdateTimer()
                     sourceText = sourceText + " (\(ageInMinutes)m)"
+                }else{
+                    self.stopUpdateTimer()
+                    sourceText = sourceText + " (old)"
                 }
             }
             
@@ -221,6 +225,7 @@ class RunwayWindViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.saveToSettings()
+        self.stopUpdateTimer()
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -346,6 +351,21 @@ class RunwayWindViewController: UIViewController {
             self.startUpdateSequence()
         }
 
+    }
+    
+    weak var timer : Timer? = nil
+    
+    func startUpdateTimer() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true){
+            [weak self] _ in
+            // will force redraw, and update time
+            self?.syncModelToView()
+        }
+    }
+    
+    func stopUpdateTimer() {
+        timer?.invalidate()
     }
 }
 
