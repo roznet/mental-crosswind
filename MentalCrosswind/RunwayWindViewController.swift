@@ -350,7 +350,6 @@ class RunwayWindViewController: UIViewController {
         self.runwayWindModel.speak() {
             self.startUpdateSequence()
         }
-
     }
     
     weak var timer : Timer? = nil
