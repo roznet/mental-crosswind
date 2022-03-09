@@ -47,7 +47,16 @@ class RunwayWindViewController: UIViewController {
         self.headingIndicatorView.model = self.runwayWindModel
         
         if let windSource = self.runwayWindModel.windSource {
-            self.windSourceLabel.text = windSource
+            var sourceText = windSource
+            if let windSourceDate = self.runwayWindModel.windSourceDate {
+                let ageInMinutes = Int(Date().timeIntervalSince1970 - windSourceDate.timeIntervalSince1970) / 60
+                // < 0 disable for now, as not updating in realtime
+                if ageInMinutes < 0 {
+                    sourceText = sourceText + " (\(ageInMinutes)m)"
+                }
+            }
+            
+            self.windSourceLabel.text = sourceText
             self.windSourceLabel.isEnabled = true
         }else{
             self.windSourceLabel.text = Settings.shared.airportIcao

@@ -19,6 +19,7 @@ import AVFoundation
     var windGust : Speed? = nil
     
     var windSource : String? = nil
+    var windSourceDate : Date? = nil
     
     init( runway : Heading, wind : Heading? = nil, speed : Speed? = nil, gust : Speed? = nil){
         self.runwayHeading = runway
@@ -171,6 +172,7 @@ import AVFoundation
         }
         self.windSpeed = Speed(speed: windSpeed )
         self.windHeading = Heading(heading: windHeading )
+        self.windSource = nil
     }
     
     //MARK: - change values
@@ -186,6 +188,8 @@ import AVFoundation
         if let airport = airport {
             self.windSource = airport.icao
         }
+        self.windSourceDate = metar.time.dt
+        
         self.windHeading = Heading(roundedHeading: metar.wind_direction.value)
         self.windSpeed = Speed(roundedSpeed: metar.wind_speed.value)
     }

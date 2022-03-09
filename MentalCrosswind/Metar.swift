@@ -19,8 +19,31 @@ struct Metar : Decodable {
         var value : Int
     }
     
+    struct Time : Decodable{
+        enum Category : String, Decodable {
+            case dt
+        }
+        var dt : Date
+    }
+    
+    var time : Time
     var wind_direction : Value
     var wind_speed : Value
+    
+    var ageInMinutesIfLessThanOneHour : Int? {
+        let secs = Int(Date().timeIntervalSince1970 - time.dt.timeIntervalSince1970)
+        if secs > 3600 {
+            return nil
+        }
+        return secs / 60
+    }
+    
+    static func metar(json : Data) throws -> Metar {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let rv : Metar = try decoder.decode(Metar.self, from: json)
+        return rv
+    }
     
     static func metar(icao : String, callback : @escaping (_ : Metar?, _ : String) -> Void){
         if let url = URL(string: "https://avwx.rest/api/metar/\(icao)"),
@@ -41,7 +64,7 @@ struct Metar : Decodable {
                       }
                 if let mimeType = httpResponse.mimeType, mimeType == "application/json",
                    let data = data {
-                   let rv : Metar? = try? JSONDecoder().decode(Metar.self, from: data)
+                    let rv : Metar? = try? self.metar(json: data)
                     callback(rv,icao)
                 }
             }

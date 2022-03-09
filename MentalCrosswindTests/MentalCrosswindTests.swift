@@ -60,7 +60,8 @@ class MentalCrosswindTests: XCTestCase {
         guard let url = Bundle(for: type(of: self)).url(forResource: "metar-\(icao)", withExtension: "json") else { XCTAssertTrue(false); return nil}
         do {
             let data = try Data(contentsOf: url)
-            let metar = try JSONDecoder().decode(Metar.self, from: data)
+            let metar = try Metar.metar(json: data)
+            
             XCTAssertGreaterThan(metar.wind_speed.value, 0)
             XCTAssertGreaterThan(metar.wind_direction.value, 0)
             return metar
