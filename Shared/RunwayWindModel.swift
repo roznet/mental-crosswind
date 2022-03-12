@@ -181,6 +181,20 @@ import AVFoundation
         self.runwayHeading = self.runwayHeading.opposing
     }
     
+    func alreadyRefreshed(airport : Airport? = nil, icao : String? = nil) -> Bool {
+        if let sourceDate = self.windSourceDate {
+            if sourceDate.timeIntervalSinceNow > -600.0 {
+                if let icao = icao {
+                    return icao == self.windSource
+                }
+                if let airport = airport {
+                    return airport.icao == self.windSource
+                }
+            }
+        }
+        return false
+    }
+    
     func setupFrom(metar : Metar, airport : Airport? = nil, icao : String? = nil) {
         if let icao = icao {
             self.windSource = icao

@@ -144,12 +144,14 @@ class RunwayWindViewController: UIViewController {
     }
     
     func refreshModel(airport : Airport){
-        Metar.metar(icao: airport.icao){ metar,icao in
-            if let metar = metar {
-                self.runwayWindModel.setupFrom(metar: metar, icao: icao)
-                self.runwayWindModel.updateRunwayHeading(heading: airport.bestRunway(wind: self.runwayWindModel.windHeading))
-                DispatchQueue.main.async {
-                    self.syncModelToView()
+        if !self.runwayWindModel.alreadyRefreshed(airport: airport) {
+            Metar.metar(icao: airport.icao){ metar,icao in
+                if let metar = metar {
+                    self.runwayWindModel.setupFrom(metar: metar, icao: icao)
+                    self.runwayWindModel.updateRunwayHeading(heading: airport.bestRunway(wind: self.runwayWindModel.windHeading))
+                    DispatchQueue.main.async {
+                        self.syncModelToView()
+                    }
                 }
             }
         }
@@ -168,7 +170,6 @@ class RunwayWindViewController: UIViewController {
                 if let coord = coord {
                     Airport.near(coord: coord){ airports in
                         Settings.shared.lastNearestList = airports.map{ $0.icao }
-                        
                         if let first = airports.first {
                             self.refreshModel(airport: first)
                         }
