@@ -140,6 +140,9 @@ class Settings {
     
     @UserStorage(key: Key.last_airports_list.rawValue, defaultValue: [])
     var lastAirportsList : [String]
+
+    @UserStorage(key: Key.last_airports_list.rawValue, defaultValue: [])
+    var lastNearestList : [String]
     
     @UserStorage(key: Key.analysis_is_displayed.rawValue, defaultValue: true)
     var analysisIsDisplayed : Bool

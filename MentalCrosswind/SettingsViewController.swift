@@ -23,11 +23,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
-    let choices = ["EGLF","EGLL","KPAO","EGMC","KSFO","EGMD","LFOK","LSGS"]
+    var choices : [String] {
+        var rv = Settings.shared.lastAirportsList
+        rv.append(contentsOf: Settings.shared.lastNearestList )
+        return rv
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dropDown.anchorView = icaoTextField
-        dropDown.dataSource = choices
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.icaoTextField.text = item
             Settings.shared.airportIcao = item
@@ -100,7 +103,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     //MARK: - textField delegate
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+        let set = Set<String>(choices)
+
+        dropDown.dataSource = Array(set)
         dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
         dropDown.show()
     }
@@ -108,7 +113,15 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         if let text = textField.text {
             if textField == self.icaoTextField {
                 Logger.app.info("Selected new airport \(text)")
-                Settings.shared.airportIcao = text
+                if !Settings.shared.airportIcao.contains(text) {
+                    Settings.shared.airportIcao = text
+                    var last = Settings.shared.lastAirportsList
+                    last.insert(text, at: 0)
+                    if last.count > 5 {
+                        last.removeLast(last.count-5)
+                    }
+                    Settings.shared.lastNearestList = Array( Set( last ) )
+                }
                 dropDown.hide()
             }
         }

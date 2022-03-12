@@ -167,6 +167,8 @@ class RunwayWindViewController: UIViewController {
             self.startTracking() { coord in
                 if let coord = coord {
                     Airport.near(coord: coord){ airports in
+                        Settings.shared.lastNearestList = airports.map{ $0.icao }
+                        
                         if let first = airports.first {
                             self.refreshModel(airport: first)
                         }
@@ -388,21 +390,21 @@ extension RunwayWindViewController : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("failed to locate \(error)")
+        Logger.app.error("failed to locate \(error.localizedDescription)")
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .authorizedAlways:
-            print("Authorization always")
+            Logger.app.info("Authorization always")
         case .authorizedWhenInUse:
-            print("Authorization wheninused")
+            Logger.app.info("Authorization wheninused")
         case .denied, .restricted:
-            print("Authorization changed denied/restricted")
+            Logger.app.info("Authorization changed denied/restricted")
         case .notDetermined:
-            print("Authorization changed notDetermined")
+            Logger.app.info("Authorization changed notDetermined")
         default:
-            print("Authorization changed default")
+            Logger.app.info("Authorization changed default")
         }
         
     }
