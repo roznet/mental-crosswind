@@ -206,6 +206,12 @@ import AVFoundation
         
         self.windHeading = Heading(roundedHeading: metar.wind_direction.value)
         self.windSpeed = Speed(roundedSpeed: metar.wind_speed.value)
+        
+        if let gustSpeed = metar.gust_speed {
+            self.windGust = Speed(roundedSpeed: gustSpeed.value)
+        }else{
+            self.windGust = nil
+        }
     }
     
     func rotateHeading(degree : Int){

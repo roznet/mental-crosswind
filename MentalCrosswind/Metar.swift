@@ -29,6 +29,7 @@ struct Metar : Decodable {
     var time : Time
     var wind_direction : Value
     var wind_speed : Value
+    var gust_speed : Value?
     
     var ageInMinutesIfLessThanOneHour : Int? {
         let secs = Int(Date().timeIntervalSince1970 - time.dt.timeIntervalSince1970)
