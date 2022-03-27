@@ -41,7 +41,7 @@
 		42B7C4D327B9A67E007C59F8 /* Heading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875C9E27B96F9400E47BB5 /* Heading.swift */; };
 		42B7C4D527B9A67E007C59F8 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42875CA127B975E600E47BB5 /* Speed.swift */; };
 		42B7C4D727B9AAF0007C59F8 /* HeadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C4D627B9AAF0007C59F8 /* HeadingIndicatorView.swift */; };
-		42D90E6D27D523E20034DFAC /* Geomagnetism in Frameworks */ = {isa = PBXBuildFile; productRef = 42D90E6C27D523E20034DFAC /* Geomagnetism */; };
+		42C5A96E27F092B100F1C6D5 /* Geomagnetism in Frameworks */ = {isa = PBXBuildFile; productRef = 42C5A96D27F092B100F1C6D5 /* Geomagnetism */; };
 		42D90E7127D814130034DFAC /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 42D90E7027D814130034DFAC /* DropDown */; };
 /* End PBXBuildFile section */
 
@@ -108,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42D90E6D27D523E20034DFAC /* Geomagnetism in Frameworks */,
+				42C5A96E27F092B100F1C6D5 /* Geomagnetism in Frameworks */,
 				42D90E7127D814130034DFAC /* DropDown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,8 +263,8 @@
 			);
 			name = MentalCrosswind;
 			packageProductDependencies = (
-				42D90E6C27D523E20034DFAC /* Geomagnetism */,
 				42D90E7027D814130034DFAC /* DropDown */,
+				42C5A96D27F092B100F1C6D5 /* Geomagnetism */,
 			);
 			productName = MentalCrosswind;
 			productReference = 42B7C4A327B9A665007C59F8 /* MentalCrosswind.app */;
@@ -339,8 +339,8 @@
 			);
 			mainGroup = 42875C7627B9234D00E47BB5;
 			packageReferences = (
-				42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */,
 				42D90E6F27D814130034DFAC /* XCRemoteSwiftPackageReference "DropDown" */,
+				42C5A96C27F092B100F1C6D5 /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */,
 			);
 			productRefGroup = 42875C8427B9235000E47BB5 /* Products */;
 			projectDirPath = "";
@@ -770,12 +770,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */ = {
+		42C5A96C27F092B100F1C6D5 /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:roznet/Geomagnetism-Swift.git";
+			repositoryURL = "https://github.com/roznet/Geomagnetism-Swift";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		42D90E6F27D814130034DFAC /* XCRemoteSwiftPackageReference "DropDown" */ = {
@@ -789,9 +789,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		42D90E6C27D523E20034DFAC /* Geomagnetism */ = {
+		42C5A96D27F092B100F1C6D5 /* Geomagnetism */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 42D90E6827D51DA00034DFAC /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */;
+			package = 42C5A96C27F092B100F1C6D5 /* XCRemoteSwiftPackageReference "Geomagnetism-Swift" */;
 			productName = Geomagnetism;
 		};
 		42D90E7027D814130034DFAC /* DropDown */ = {
