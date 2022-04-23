@@ -7,6 +7,8 @@
 
 import UIKit
 import DropDown
+import RZFlight
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Settings.registerDefaults()
         DropDown.startListeningToKeyboard()
+        Secrets.shared = Secrets(url: Bundle.main.url(forResource: "secrets", withExtension: "json") )
         return true
     }
 
