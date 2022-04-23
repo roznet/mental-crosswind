@@ -1,25 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "DropDown",
-        "repositoryURL": "https://github.com/AssistoLab/DropDown",
-        "state": {
-          "branch": "master",
-          "revision": "2ab6f6ce19f0117d1a76ea043ef8f57722c65d16",
-          "version": null
-        }
-      },
-      {
-        "package": "Geomagnetism",
-        "repositoryURL": "git@github.com:roznet/Geomagnetism-Swift.git",
-        "state": {
-          "branch": "master",
-          "revision": "74049c87ab58b6e004342a64de2884c60b0c4734",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "dropdown",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AssistoLab/DropDown",
+      "state" : {
+        "branch" : "master",
+        "revision" : "2ab6f6ce19f0117d1a76ea043ef8f57722c65d16"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "geomagnetism",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/roznet/Geomagnetism",
+      "state" : {
+        "revision" : "74049c87ab58b6e004342a64de2884c60b0c4734",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "rzflight",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/roznet/rzflight.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9fefecf5fe8cd42643af2c74b62ecaaf9ca54199"
+      }
+    }
+  ],
+  "version" : 2
 }

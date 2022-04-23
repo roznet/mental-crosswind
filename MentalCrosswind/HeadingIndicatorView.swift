@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RZFlight
 
 extension NSString {
     func draw(centeredAt center : CGPoint, angle : CGFloat, withAttribute attr: [NSAttributedString.Key : Any]?){

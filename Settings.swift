@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RZFlight
 
 @propertyWrapper
 struct UserStorage<Type> {
@@ -50,49 +51,6 @@ struct EnumStorage< Type : RawRepresentable > {
     }
 
 }
-
-@propertyWrapper
-struct HeadingStorage {
-    private let key : String
-    private let defaultValue : Heading
-    
-    init(key : String, defaultValue : Heading){
-        self.key = key
-        self.defaultValue = defaultValue
-    }
-    
-    var wrappedValue : Heading {
-        get {
-            let val = UserDefaults.standard.integer(forKey: key)
-            return Heading(roundedHeading: val)
-        }
-        set {
-            UserDefaults.standard.set(newValue.roundedHeading, forKey: key)
-        }
-    }
-}
-
-@propertyWrapper
-struct SpeedStorage {
-    private let key : String
-    private let defaultValue : Speed
-    
-    init(key : String, defaultValue : Speed){
-        self.key = key
-        self.defaultValue = defaultValue
-    }
-    
-    var wrappedValue : Speed {
-        get {
-            let val = UserDefaults.standard.integer(forKey: key)
-            return Speed(roundedSpeed: val)
-        }
-        set {
-            UserDefaults.standard.set(newValue.roundedSpeed, forKey: key)
-        }
-    }
-}
-
 
 
 class Settings {

@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import OSLog
+import RZFlight
 
 extension Notification {
     static let SettingsChangedNotificationName  = Notification.Name(rawValue: "SettingsChangedNotification")
