@@ -57,6 +57,7 @@ extension CGPoint {
 }
 
 class HeadingIndicatorView: UIView {
+    
     enum DisplayWind {
         case hidden
         case wind
@@ -73,24 +74,133 @@ class HeadingIndicatorView: UIView {
         var enabled : Bool { return self != .hidden }
     }
     
-    var model : RunwayWindModel = RunwayWindModel()
-    var displayWind : DisplayWind = .wind
-    var displayCrossWind : DisplayCrossWindComponent = .hidden
-    var geometry : HeadingIndicatorGeometry = HeadingIndicatorGeometry(rect: CGRect.zero, heading: 0.0)
+    var model : RunwayWindModel {
+        get { return self.headingIndicatorLayer.model }
+        set { self.headingIndicatorLayer.model = newValue }
+    }
+    var displayWind : DisplayWind {
+        get { return self.headingIndicatorLayer.displayWind }
+        set { self.headingIndicatorLayer.displayWind = newValue }
+    }
+    var displayCrossWind : DisplayCrossWindComponent {
+        get { return self.headingIndicatorLayer.displayCrossWind }
+        set { self.headingIndicatorLayer.displayCrossWind = newValue }
+    }
+    
+    var geometry : HeadingIndicatorGeometry { return self.headingIndicatorLayer.geometry }
+    var circleColor : UIColor = UIColor.label { didSet { self.headingIndicatorLayer.circleColor = circleColor }}
+    var compassPointColor : UIColor = UIColor.label { didSet { self.headingIndicatorLayer.compassPointColor = compassPointColor }}
+    var windConeColor : UIColor = UIColor.systemRed { didSet { self.headingIndicatorLayer.windConeColor = windConeColor }}
+    var labelAttribute : [NSAttributedString.Key : Any]? = nil { didSet { self.headingIndicatorLayer.labelAttribute = labelAttribute }}
 
+    override class var layerClass : AnyClass {
+        return HeadingIndicatorLayer.self
+    }
+    
+    var headingIndicatorLayer : HeadingIndicatorLayer {
+        return self.layer as! HeadingIndicatorLayer
+    }
+    
+    override func draw(_ rect: CGRect) {
+        self.headingIndicatorLayer.setNeedsDisplay()
+    }
+    //MARK: - element check
+    
+    /**
+        return angle if in circle, nil otherwise
+     */
+    func headingInCircle(point : CGPoint) -> CGFloat? {
+        let distance = point.distance(to: geometry.center)
+        if distance > (geometry.baseRadius * 0.95 - geometry.margin ) {
+            return self.heading(point: point)
+        }
+        return nil
+    }
+
+    func headingInWindCone(point : CGPoint) -> CGFloat? {
+        if displayWind.enabled {
+            let heading = self.heading(point: point)
+            if abs( heading - headingIndicatorLayer.windHeading ) < 10 {
+                return heading
+            }
+        }
+        return nil
+    }
+
+    
+    func heading(point : CGPoint) -> CGFloat {
+        let angle = geometry.center.angle(to: point)
+        // + 90 to rotate north up, +360 to get rid of negative with the modulo and plus heading to rotate
+        return (angle + 90.0 + 360.0 + headingIndicatorLayer.heading).truncatingRemainder(dividingBy: 360.0)
+    }
+
+    func rotateHeading(degree : CGFloat){
+        // minus sign because rotation in screen is opposite
+        self.model.rotateHeading(degree: -Int(degree))
+    }
+    
+    func rotateWind(degree : CGFloat){
+        if displayWind.enabled {
+            //self.model.windHeading.rotate(degree: Int(degree))
+            self.model.rotateWind(degree: Int(degree))
+        }
+    }
+    
+    func increaseWindSpeed(percent : CGFloat){
+        // for now just
+        self.model.increaseWind(speed: Int(percent))
+        //self.model.windSpeed.increase(speed: Int(percent))
+    }
+    
+    func radius(point : CGPoint) -> CGFloat {
+        return geometry.center.distance(to: point)
+    }
+    
+    func radiusPercent(point : CGPoint) -> CGFloat {
+        return geometry.center.distance(to: point) / geometry.baseRadius * 100.0
+    }
+}
+
+class HeadingIndicatorLayer : CALayer {
+    var model : RunwayWindModel = RunwayWindModel()
+    var displayWind : HeadingIndicatorView.DisplayWind = .wind
+    var displayCrossWind : HeadingIndicatorView.DisplayCrossWindComponent = .hidden
+    var geometry : HeadingIndicatorGeometry = HeadingIndicatorGeometry(rect: CGRect.zero, heading: 0.0)
+    
     var circleColor : UIColor = UIColor.label
     var compassPointColor : UIColor = UIColor.label
     var windConeColor : UIColor = UIColor.systemRed
     var labelAttribute : [NSAttributedString.Key : Any]? = nil
         
     // for now keep heading and runway consistent
-    private var heading : CGFloat { CGFloat(self.model.runwayHeading.heading)}
+    
+    var windHeading : CGFloat { return self.model.windHeading.heading }
+    var heading : CGFloat { CGFloat(self.model.runwayHeading.heading)}
+    
     private var runwayDescription : String { self.model.runwayHeading.runwayDescription }
-    private var windHeading : CGFloat { return self.model.windHeading.heading }
     private var windSpeed : CGFloat { return self.model.windSpeed.speed }
     private var windSizePercent : CGFloat { min(50.0,max(10.0, windSpeed)) }
     
+    override class func needsDisplay(forKey key: String) -> Bool {
+        if key == "model" {
+            return true
+        }
+        return super.needsDisplay(forKey: key)
+    }
+
     //MARK: - draw elements
+    
+    override func draw(in ctx: CGContext) {
+        super.draw(in: ctx)
+        UIGraphicsPushContext(ctx)
+        self.geometry = HeadingIndicatorGeometry(rect: bounds, heading: self.heading)
+
+        self.drawCompass(bounds)
+        self.drawWindCone(bounds)
+        self.drawRunway(bounds)
+
+        UIGraphicsPopContext()
+    }
     
     func drawRunway(_ rect : CGRect){
         let center = geometry.center
@@ -262,69 +372,8 @@ class HeadingIndicatorView: UIView {
         }
     }
     
-    override func draw(_ rect: CGRect) {
-        self.geometry = HeadingIndicatorGeometry(rect: rect, heading: self.heading)
-        
-        self.drawCompass(rect)
-        self.drawWindCone(rect)
-        self.drawRunway(rect)
-    }
     
-    //MARK: - element check
-    
-    /**
-        return angle if in circle, nil otherwise
-     */
-    func headingInCircle(point : CGPoint) -> CGFloat? {
-        let distance = point.distance(to: geometry.center)
-        if distance > (geometry.baseRadius * 0.95 - geometry.margin ) {
-            return self.heading(point: point)
-        }
-        return nil
-    }
 
-    func headingInWindCone(point : CGPoint) -> CGFloat? {
-        if displayWind.enabled {
-            let heading = self.heading(point: point)
-            if abs( heading - windHeading ) < 10 {
-                return heading
-            }
-        }
-        return nil
-    }
-
-    
-    func heading(point : CGPoint) -> CGFloat {
-        let angle = geometry.center.angle(to: point)
-        // + 90 to rotate north up, +360 to get rid of negative with the modulo and plus heading to rotate
-        return (angle + 90.0 + 360.0 + self.heading).truncatingRemainder(dividingBy: 360.0)
-    }
-
-    func rotateHeading(degree : CGFloat){
-        // minus sign because rotation in screen is opposite
-        self.model.rotateHeading(degree: -Int(degree))
-    }
-    
-    func rotateWind(degree : CGFloat){
-        if displayWind.enabled {
-            //self.model.windHeading.rotate(degree: Int(degree))
-            self.model.rotateWind(degree: Int(degree))
-        }
-    }
-    
-    func increaseWindSpeed(percent : CGFloat){
-        // for now just
-        self.model.increaseWind(speed: Int(percent))
-        //self.model.windSpeed.increase(speed: Int(percent))
-    }
-    
-    func radius(point : CGPoint) -> CGFloat {
-        return geometry.center.distance(to: point)
-    }
-    
-    func radiusPercent(point : CGPoint) -> CGFloat {
-        return geometry.center.distance(to: point) / geometry.baseRadius * 100.0
-    }
 
     
     //MARK: - draw helper
@@ -371,3 +420,5 @@ class HeadingIndicatorView: UIView {
 
     
 }
+
+
